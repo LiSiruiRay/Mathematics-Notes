@@ -1,0 +1,105 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{Customized}
+
+%Packages
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{empheq}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{cancel}
+\usepackage{enumitem}
+\usepackage[mathscr]{euscript}
+\usepackage{graphicx}
+
+\DeclareMathOperator{\supp}{supp}
+%Vector Stuff
+\renewcommand{\vec}[1]{\mathbf{#1}} % Bold Vector Notation
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert} % Norm of a Vector
+\newcommand{\uvec}[1]{\boldsymbol{\hat{\textbf{#1}}}} % Unit Vector
+\newcommand{\innPro}[2]{\langle #1, #2 \rangle}%Inner Product
+
+\DeclareMathOperator{\grad}{grad} % Gradient
+\DeclareMathOperator{\spn}{Span}% subset of $ \Real^n $ spanned by vectors
+
+%Real and Imaginary parts of a complex number
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{im}}
+
+%Set stuff
+\DeclareMathOperator{\Int}{Int}%Interior of a set
+\DeclareMathOperator{\Cl}{Cl}%Closure of a set
+
+\newcommand{\matr}[1]{\mathbf{#1}}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\card}{card}
+
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\adj}{Adj}
+\DeclareMathOperator{\col}{Col}
+\DeclareMathOperator{\row}{Row}
+\DeclareMathOperator{\nul}{Nul}
+\DeclareMathOperator{\rank}{rank}
+
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+\newcommand{\dbar}{{\mathchar '26\mkern -11.5mud}}
+
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Natural}{\mathbb{N}}
+\newcommand{\Zahlen}{\mathbb{Z}}
+\newcommand{\Quoziente}{\mathbb{Q}}
+\newcommand{\newpara}{\\ \newline}
+\newcommand{\Complex}{\mathbb{C}}
+\newcommand{\iu}{{i\mkern1mu}}
+\newcommand{\Si}{\text{Si }}%Sine Integral
+\newcommand{\Ci}{\text{Ci }}%Cosine Integral
+\newcommand{\li}{\text{li }}%Logarithmic Integral
+
+
+
+%ABSTRACT ALGEBRA STUFF
+\DeclareMathOperator{\Ker}{Ker} %Kernel of a homomorphism of groups
+\renewcommand{\Im}{\operatorname{Im}}%Image of a function
+\newcommand{\angbracket}[1]{\langle #1 \rangle} % angle bracket
+\newcommand{\Cat}[1]{\mathbf{#1}}
+\DeclareMathOperator{\Char}{char}%Characteristic of a Ring
+\DeclareMathOperator{\Stab}{Stab}%Stablizer
+\DeclareMathOperator{\Orb}{Orb}%Orbit
+\DeclareMathOperator{\Fix}{Fix}%Fix
+
+\newcommand{\exercise}{Left for Exercise}
+
+% inverse hyperbolic functions
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arsec}{arsec}
+\DeclareMathOperator{\arcot}{arcot}
+\DeclareMathOperator{\arcsc}{arcsc}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\artanh}{artanh}
+\DeclareMathOperator{\arsech}{arsech}
+\DeclareMathOperator{\arcsch}{arcsch}
+\DeclareMathOperator{\arcoth}{arcoth} 
+
+
+%Logic
+\newcommand{\True}{\mathbf{T}}
+\newcommand{\False}{\mathbf{F}}
+
+\newtheorem{Theorem}{Theorem}[section]%Theorem
+\newtheorem*{Corollary}{Corollary} %Corollary
+\newtheorem*{Lemma}{Lemma}%Lemma
+\newtheorem{Example}{\textit{Example}}[chapter] % Statement
+\theoremstyle{definition}
+\newtheorem*{Definition}{Definition} %Definition
+\newtheorem*{Proposition}{Proposition}%Proposition

@@ -5,13 +5,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper,11pt]{book}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+% \usepackage[T1]{fontenc}
+% \usepackage[utf8]{inputenc}
+% \usepackage{lmodern}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Source: http://en.wikibooks.org/wiki/LaTeX/Hyperlinks %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{/Users/HechenHu/Development/NoteTaking/Mathematics-Notes/Customized}
+\usepackage{lindrew}
+\usepackage{adjustbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Chapter quote at the start of chapter        %
 % Source: http://tex.stackexchange.com/a/53380 %
@@ -41,722 +43,40 @@
 \author{\textsc{Hechen Hu}}
 
 \begin{document}
-	\frontmatter
+	% \frontmatter
 	\maketitle
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% Auto-generated table of contents, list of figures and list of tables %
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\tableofcontents
-	
-	\mainmatter
 	
 	
+	% \mainmatter
 	
-	
-	
-\chapter{Groups}
-\section{Semigroups, Monoids and Groups}
-\begin{Definition}
-	A \textit{semigroup} is a nonempty set $ G $ together with a binary operation on $ G $ which is associative.
-\end{Definition}
-\begin{Definition}
-	A \textit{monoid} is a semigroup $ G $ which contains a (two-sided) identity element $ e \in G $ such that $ ae=ea=a $ for all $ a \in G $.
-\end{Definition}
-\begin{Definition}
-	A \textit{group} is a monoid $ G $ such that there exists a (two-sided) inverse element and the operation between the inverse element and the original element yields the identity element regardless of order of operation.
-\end{Definition}
-\begin{Definition}
-	A semigroup $ G $ is said to be \textit{abelian} or \textit{commutative} if its binary operation is commutative.
-\end{Definition}
-\begin{Definition}
-	The \textit{order} of a group $ G $ is the cardinal number $ |G| $. $ G $ is said to be finite(resp. infinite) if $ |G| $ is finite(resp. infinite).
-\end{Definition}
-\begin{Theorem}
-	If $ G $ is a monoid, then the identity element $ e $ is unique. If $ G $ is a group, then
-	\begin{itemize}
-		\item $ c \in G $ and $ (cc=c)\Rightarrow (c=e) $;
-		\item for all $ a,b,c\in G $ we have $ (ab=ac)\Rightarrow(b=c) $ and $ (ba=ca)\Rightarrow(b=c) $ (left and right cancellation);
-		\item for each element in $ G $ its inverse element is unique;
-		\item for each element in $ G $ the inverse of its inverse is itself;
-		\item for $ a,b\in G $ we have $ (ab)^{-1}=b^{-1}a^{-1} $;
-		\item for $ a,b\in G $ the equation $ ax=b $ and $ ya=b $ have unique solutions in $ G:x=a^{-1}b $ and $ y=b a^{-1} $.
-	\end{itemize}
-\end{Theorem}
-\begin{Proposition}
-	Let $ G $ be a semigroup. $ G $ is a group iff the following conditions hold:
-	\begin{itemize}
-		\item there exists an element $ e \in G $ such that $ ea=a $ for all $ a \in G $ (left identity element);
-		\item for each $ a \in G $, there exists an element $ a^{-1} \in G$ such that $ a^{-1}a=e $ (left inverse).
-	\end{itemize}
-and an analogous result holds for "right inverses" and a "right identity".
-\end{Proposition}
 
-\begin{Proposition}
-	Let $ G $ be a semigroup. $ G $ is a group iff for all $ a,b\in G $ the equations $ ax=b $ and $ ya=b $ have solutions in $ G $.
-\end{Proposition}
-\begin{proof}
-	\exercise
-\end{proof}
+\tableofcontents
 
-\begin{Example}
-	Let $ S $ be a nonempty set and $ A(S) $ the set of all bijections $ S \to S $. Under the operation of composition of functions, $ \circ $, $ A(S) $ is a group. The elements of $ A(S) $ are called \textit{permutations} and $ A(S) $ is called the group of permutations on the set $ S $. If $ S=\{1,2,3,\cdots,n\} $, then $ A(S) $ is called the symmetric group on $ n $ letters and denoted $ S_n $. $ |S_n|=n! $.
-\end{Example}
-\begin{Definition}
-	The \textit{direct product} of two groups $ G $ and $ H $ with identities $ e_G $ and $ e_H $ is the group whose underlying set is $ G \times H $ and whose binary operation is given by:
-	\begin{equation}
-		(a,b)(a^\prime,b^\prime)=(a a^\prime,b b^\prime),\quad \text{ where }a,a^\prime \in G;b, b^\prime \in H\nonumber
-	\end{equation}
-	$ G \times H $ is abelian if both $ G $ and $ H $ are; $ (e_G,e_H) $ is the identity and $ (a^{-1},b^{-1}) $ is the inverse of $ (a,b) $. Clearly $ |G \times H|=|G||H| $.
-\end{Definition}
-
-\begin{Theorem}
-	Let $ R(\sim) $ be an equivalence relation on a monoid $ G $ such that $ a_1~a_2 $ and $ b_1~b_2 $ imply $ a_1 b_1 ~ a_2 b_2 $ for all $ a_i, b_i \in G $. Then the set $ G/R $ of all equivalence classes of $ G $ under $ R $ is a monoid under the binary operation defined by $ (\bar{a})(\bar{b})=\bar{ab} $, where $ \bar{x} $ denoted the equivalence class of $ x \in G $. If $ G $ is an [abelian] group, then so is $ G/R $.\newpara
-	An equivalence relation on a monoid $ G $ that satisfies these hypothesis is called a \textbf{congruence relation} on $ G $.
-	
-\end{Theorem}
-\begin{Example}
-	The following relation on the additive froup $ \Quoziente $ is a congruence relation:
-	\begin{equation}
-		a \sim b \Leftrightarrow a-b \in \Zahlen \nonumber
-	\end{equation}
-	The set of equivalence classes (denoted $ \Quoziente / \Zahlen $) is an infinite abelian group, with addition given by $ \bar{a}+\bar{b}=\bar{a+b} $, and called the \textit{group of rationals modulo one}.
-\end{Example}
-\begin{Definition}
-	The \textit{meaningful product} on any sequence of elements of a semigroup $ G $, $ \{a_1,a_2,\cdots\} $, $ a_1,\cdots,a_n $(in this order), is defined inductively as below: If $ n=1 $, the only meaningful product is $ a_1 $. If $ n>1 $, then a meaningful product is defined to be any product of the form $ (a_1\cdots a_m)(a_{m+1}\cdots a_n) $ where $ m<n $ and $ (a_1\cdots a_m) $ and $ (a_{m+1}\cdots a_n) $ are meaningful products of $ m $ and $ n-m $ elements respectively.
-\end{Definition}
-\begin{Definition}
-	The \textit{standard $ n $ product} $ \prod_{i=1}^{n}a_i $ is defined as follows:
-	\begin{equation}
-		\prod_{i=1}^{1}a_i=a_i;\quad\text{ for }n>1,\prod_{i=1}^{n}a_i = (\prod_{i=1}^{n-1}a_i)a_n \nonumber
-	\end{equation}
-\end{Definition}
-
-\begin{Theorem}[Generalized Associative Law]
-	If $ G $ is a semigroup and $ a_1,\cdots,a_n \in G $, then any two meaningful products of $ a_1,\cdots,a_n  $ in this order are equal.
-\end{Theorem}
-\begin{Theorem}[Generalized Commutative Law]
-	If $ G $ is a commutative semigroup and $ a_1,\cdots,a_n \in G $, then for any permutation $ i_1,\cdots,i_n $ of $ 1,2,\cdots,n $, $ a_1 a_2 \cdots a_n = a_{i_1}a_{i_2}\cdots a_{i_n} $.
-\end{Theorem}
-\begin{Definition}
-	Let $ G $ be a semigroup, $ a \in G$ and $ n \in \Natural $. The element $ a^n \in G $ is defined to be the standard $ n $ product $ \prod_{i=1}^{n}a_i $ with $ a_i=a  $ for $ 1 \leqslant i \leqslant n $. If $ G $ is a monoid, $ a^0 $ is defined to be the identity element $ e $. If $ G $ is a group, then for each $ n \in \Natural $, $ a^{-n} $ is defined to be $ (a^{-1})^n \in G $.
-\end{Definition}
-\begin{Theorem}
-	If $ G $ is a group(resp. semigroup, monoid) and $ a \in G $, then for all $ m,n \in \Zahlen $ (resp. $ \Natural $ and $ \Natural \cup \{0\} $) :
-	\begin{itemize}
-		\item $ a^m a^n = a^{m+n} $ 
-		\item $ (a^m)^n=a^{mn} $
-	\end{itemize}
-\end{Theorem}
-
-
-
-
-
-\section{Homomorphisms and Subgroups}
-\begin{Definition}
-	Let $ G $ and $ H $ be semigroups. A function $ f:G \to H $ is a \textit{homomorphism} provided
-	\begin{equation}
-		f(ab)=f(a)f(b) \text{ for all }a,b \in G\nonumber
-	\end{equation}
-	If $ f $ is injective as a map of sets, $ f $ is said to be a \textit{monomorphism}. If $ f $ is surjective, $ f $ is called an \textit{epimorphism}. If $ f $ is bijective, $ f $ is called an \textit{isomorphism}. In this case $ G $ and $ H $ are said to be \textit{isomorphic} (written $ G \cong H $). A homomorphism $ f:G \to G $ is called an \textit{endomorphism} of $ G $ and an isomorphism $ f:G \to G $ is called an \textit{automorphism} of $ G $.
-\end{Definition}
-\begin{Definition}
-	Let $ f:G \to H $ be a homomorphism of groups. The \textit{kernel} of $ f $(denoted $ \Ker{f} $) is $ \{a\in G | f(a) = e \in H  \} $. If $ A $ is a subset of $ G $, then $ f(A)=\{b \in H | b= f(a) \text{ for some }a \in A \} $  is the \textit{image of $ A $}. $ f(G) $ is called the \textit{image of $ f $} and denoted $ \Im{f} $. If $ B $ is a subset of $ H $, $ f^{-1}(B)=\{a \in G |f(a) \in B  \} $ is the \textit{inverse image} of $ B $.
-\end{Definition}
-\begin{Theorem}
-	Let $ f:G \to H $ be a homomorphism of groups. Then
-	\begin{itemize}
-		\item $ f $ is a monomorphism iff $ \Ker{f}=\{e\} $.
-		\item $ f $ is an isomorphism iff there is a homomorphism $ f^{-1}:H \to G $ such that $ f f^{-1}=1_H $ and $ f^{-1}f=1_G $.
-	\end{itemize}
-\end{Theorem}
-\begin{Definition}
-	Let $ G $ be a semigroup and $ H $ a nonempty subset of it. If for every $ a,b \in H $ we have $ ab \in H $, we say that $ H $ is \textit{closed} under the product in $ G $. This is the same as saying that the binary operation on $ G $, when restricted to $ H $, is a binary operation on $ H $.
-\end{Definition}
-\begin{Definition}
-	Let $ G $ be a group and $ H $ a nonempty subset that is closed under the product in $ G $. If $ H $ is itself a group under the product in $ G $, then $ H $ is said to be a \textit{subgroup} of $ G $, denoted $ H<G $.
-\end{Definition}
-\begin{Definition}
-	If a subgroup $ H $ is not $ G $ itself or the \textit{trivial subgroup}, which consists only of the identity element, is called a \textit{proper subgroup}.
-\end{Definition}
-\begin{Theorem}
-	Let $ H $ be a nonempty subset of a group $ G $. Then $ H $ is a subgroup of $ G $ iff $ a b^{-1}\in H $ for all $ a,b \in H $.
-\end{Theorem}
-\begin{Corollary}
-	If $ G $ is a group and $ \{H_i|i \in I \} $ is a nonempty family of subgroups, then $ \underset{i \in I}{\bigcap}H_i $ is a subgroup of $ G $.
-\end{Corollary}
-
-
-\begin{Definition}
-	Let $ G $ be a group and $ X $ a subset of $ G $. Let $ \{H_i|i \in I \} $ be the family of all subgroups of $ G $ which contain $ X $. Then $ \underset{i \in I}{\bigcap}H_i $ is called the \textit{subgroup of $ G $ generated by the set $ X $} and denoted $ \angbracket{X}$. The elements of $ X $ are the \textit{generators} of $ \angbracket{X} $. If $ G=\angbracket{a_1,\cdots,a_n} ,(a_i \in G)$, $ G $ is said to be finitely generated. If $ a \in G $, the subgroup $ \angbracket{a} $ is called the \textit{cyclic (sub)group} generated by $ a $.
-\end{Definition}
-
-\begin{Theorem}
-	If $ G $ is a group and $ X $ a nonempty subset of $ G $, then the subgroup $ \angbracket{X} $ generated by $ X $ consists of all finite products $ a_1^{n_1} a_2^{n_2}\cdots a_t^{n_t}(a_i \in X;n_i \in \Zahlen)$. In particular for every $ a \in G $, $ \angbracket{a}=\{a^n|n\in \Zahlen \} $.
-\end{Theorem}
-
-\begin{Definition}
-	The subgroup $ \angbracket{\underset{i \in I}{\bigcap}H_i } $ generated by the set $ \underset{i \in I}{\bigcap}H_i  $ is called the \textit{subgroup generated by the groups $ \{H_i | i \in I \} $}. If $ H $ and $ K $ are subgroups, the subgroup $ \angbracket{H \cup K} $ generated by $ H $ and $ K $ is called the \textit{join} of $ H $ and $ K $ and is denoted $ H \lor K $.
-\end{Definition}
-
-
-
-\section{Cyclic Groups}
-\begin{Definition}
-	A \textit{cyclic group} or \textit{monogenous group} is a group that is generated by a single element. That is, it consists of a set of elements with a single invertible associative operation, and it contains an element such that every other element of the group may be obtained by repeatedly applying the group operation or its inverse to it.
-\end{Definition}
-\begin{Theorem}
-	Every subgroup $ H $ of the additive group $ \Zahlen $ is cyclic. Either $ H = \angbracket{0} $ or $ H = \angbracket{m} $, where $ m $ is the least positive interger in $ H $. If $ H \neq \angbracket{0} $, then $ H $ is infinite.
-\end{Theorem}
-\begin{Theorem}
-	Every infinite cyclic group is isomorphic to the additive group $ \Zahlen $ and every finite group of order $ m $ is isomorphic to the additive group $ \Zahlen_m $.
-\end{Theorem}
-
-\begin{Definition}
-	Let $ G $ be a group and $ a \in G $. The \textit{order} of $ a $ is the order of the cyclic subgroup $ \angbracket{a} $ and is denoted $ |a| $.
-\end{Definition}
-\begin{Theorem}
-	Let $ G $ be a group and $ a \in G $. If $ a $ has infinite order, then
-	\begin{itemize}
-		\item $ a^k=e $ iff $ k=0 $;
-		\item the elements $ a^k (k \in \Zahlen) $ are all distinct.
-	\end{itemize}
-If $ a $ has inite order $ m>0 $, then
-\begin{itemize}
-	\item $ m $ is the least positive integer such that $ a^m=e $;
-	\item $ a^k=e $ iff $ m|k $;
-	\item $ a^r = a^s $ iff $ r \equiv s(\text{mod} m) $;
-	\item $ \angbracket{a} $ consists of the distinct elements $ a,a^2,\cdots,a^{m-1},a^m=e $;
-	\item for each $ k $ such that $ k|m $, $ |a^k| = m/k $.
-\end{itemize}
-\end{Theorem}
-\begin{Theorem}
-	Every homomorphic image and every subgroup of a cyclic group $ G $ is cyclic. In particular, if $ H $ is a nontrivial subgroup of $ G = \angbracket{a} $ and $ m $ is the least positive integer such that $ a^m \in H $, then $ H = \angbracket{a^m} $.
-\end{Theorem}
-\begin{Theorem}
-	Let $ G = \angbracket{a} $ be a cyclic group. If $ G $ is infinite, then $ a $ and $ a^{-1} $ are the only generators of $ G $. If $ G $ is finite of order $ m $, then $ a^k $ is a generator of $ G $ iff $ (k,m)=1 $.
-\end{Theorem}
-\begin{Definition}
-	The \textit{center} $ C $ of a group $ G $ is defined as $ C=\{a \in G |(\forall x \in G)ax=xa \} $. In other words, it contains the members of $ G $ that are commutative under the binary operation on $ G $. The center of a group is an abelian subgroup of it.
-\end{Definition}
-\begin{Definition}
-	The Klein Four Group, defined as the symmetries on rectangle that preserves distance, is the smallest non-cyclic group(all its elements has order $ 2 $) and is isomorphic to $ Z_2 \oplus Z_2 $(which says that the Klein Four Group is abelian)
-\end{Definition}
-
-\section{Cosets and Counting}
-\begin{Definition}
-	Let $ H $ be a subgroup of a group $ G $ and $ a,b \in G $. $ a $ is \textit{right congruent to $ b $ modulo $ H $}, denoted $ a \equiv_r b (\text{mod }H) $ if $ a b^{-1}\in H $. $ a $ is \textit{left congruent to $ b $ modulo $ H $ }, denoted $ a \equiv_l b (\text{mod }H) $ if $  a^{-1}b\in H $.
-\end{Definition}
-\begin{Theorem}
-	Let $ H $ be a subgroup of a group $ G $.
-	\begin{itemize}
-		\item Right(resp. left) congruence modulo $ H $ is an equivalence relation on $ G $.
-		\item The equivalence class of $ a \in G $ under right(resp. left) congruence modolo $ H $ is the set $ Ha = \{ha |h\in H \} $(resp. $ aH = \{ah |h\in H \} $).
-		\item $ |Ha| = |H| = |aH| $ for all $ a \in G $.
-	\end{itemize}
-\end{Theorem}
-\begin{Definition}
-	The set $ Ha $ above is called a \textit{right coset} of $ H $ in $ G $ and $ aH $ is called an \textit{left coset} of $ H $ in $ G $.
-\end{Definition}
-\begin{Corollary}
-	Let $ H $ be a subgroup of a group $ G $.
-	\begin{itemize}
-		\item  $ G $ is the union of the right(resp. left) cosets of $ H $ in $ G $.
-		\item Two right(resp. left) cosets of $ H $ in $ G $ are either disjoint or equal.
-		\item For all $ a,b\in G $, $ (Ha = Hb) \Leftrightarrow (a b^{-1}\in H)$ and $  (aH = bH) \Leftrightarrow ( a^{-1}b\in H) $.
-		\item If $ \mathcal{R} $ is the set of distinct right cosets of $ H $ in $ G $ and $ \mathcal{L} $ is the set of distinct left cosets of $ H $ in $ G $, then $ |\mathcal{R}|=|\mathcal{L}| $.
-	\end{itemize}
-\end{Corollary}
-\begin{proof}
-	The first three statements are consequences of properties of equivalence classes. For $ (iv) $ it's easy to see that the map $ \mathcal{R}\to\mathcal{L} $ given by $ Ha \to a^{-1}H $ is a bijection.
-\end{proof}
-\begin{Definition}
-	Let $ H $ be a subgroup of a group $ G $. The \textit{index of $ H $ in $ G $}, denoted $ [G:H] $, is the cardinal number of the set of distince right(resp. left) cosets of $ H $ in $ G $.
-\end{Definition}
-\begin{Definition}
-	A \textit{complete set of right coset representatives} of a subgroup $ H $ in a group $ G $ is a set $ \{a_i\} $ consisting of precisely one element from each right coset of $ H $ in $ G $ and having cardinality $ [G:H] $.
-\end{Definition}
-\begin{Theorem}
-	If $ K,H,G $ are groups with $ K<H<G $, then $ [G:K]=[G:H][H:K] $. If any two of these indices are finite, then so is the third.
-\end{Theorem}
-\begin{proof}
-	By previous Corollary $ G = \bigcup_{i \in I}H a_i $ with $ a_i \in G $, $ |I| = [G:H] $ and the cosets $ Ha_i $ are mutually disjoint. Similarly $ H = \bigcup_{j \in J}Kb_j $ with $ b_j \in H $, $ |J| = [H:K] $ and the cosets $ Kb_j $ are mutually disjoint. Therefore $ G = \bigcup_{i \in I}Ha_i = \bigcup_{i \in I}(\bigcup_{j \in J}Kb_j)a_i =\bigcup_{(i,j)\in I \times J}Kb_j a_i$. It suffices to show that the cosets $ Kb_ja_i $ are mutually disjoint, for then we must have $ [G:K]=|I\times J| = |I||J| = [G:H][H:K] $. If $ Kb_ja_i=Kb_ra_t $, then $ b_j a_i = kb_r a_t(k \in K) $ (because $ Kk = Ke=K $). Since $ b_j,b_r,k \in H $ we have $ H a_i = H b_ja_i = H k b_r a_t = H a_t $, hence $ i=t $ and $ b_j = kb_r $. Thus $ K b_j = Kkb_r=Kb_r $ and $ j = r $. Therefore the cosets $ Kb_ja_i $ are mutually disjoint. The last statement of the theorem is obvious.
-\end{proof}
-\begin{Corollary}[Lagrange]
-	If $ H $ is a subgroup of a group $ G $, then $ |G| = [G:H]|H| $. In particular if $ G $ is finite, the order $ |a| $ of $ a \in G $ devides $ |G| $.
-\end{Corollary}
-\begin{proof}
-	Apply the theorem with $ K = \langle e\rangle $ for the first statement. The second is a special case of the first with $ H = \langle a\rangle $.
-\end{proof}
-\begin{Theorem}
-	If the set $ \{ab|a\in H,b \in K \} $ is denoted $ HK $, then for two finite subgroups $ H $ and $ K $ of a group $ G $ $ |HK|=|H||K|/|H \cap K| $.
-\end{Theorem}
-\begin{proof}
-	$ C = H \cap K $ is a subgroup of $ K $ of index $ n = |K|/|H \cap K|$ (apply the Lagrange Corollary) and $ K $ is the disjoint union of right cosets $ Ck_1 \cup C k_2 \cup \cdots \cup Ck_n $ for some $ k_i \in K $ (because $ C $ is a subgroup of $ K $). Since $ HC = H $, this implies that $ HK=HCk_1 \cup HCk_2 \cup \cdots \cup HCk_n =  Hk_1 \cup Hk_2 \cup \cdots \cup Hk_n$, which are disjoint. Therefore, $ |HK| = |H|\cdot n = |H||K|/|H \cap K| $.
-\end{proof}
-\begin{Proposition}
-	If $ H $ and $ K $ are subgroups of a group $ G $, then $ [H:H\cap K]\leqslant [G:K] $. If $ [G:K] $ is finite, then $ [H:H\cap K]= [G:K]  $ iff $ G = KH $.
-\end{Proposition}
-\begin{proof}
-	Let $ A $ be the set of all right cosets of $ H \cap K $ in $ H $ and $ B $ the set of all right cosets of $ K $ in $ G $. The map $ \varphi:A \to B $ given by $ (H \cap K)h \mapsto Kh(h \in H) $ is well defined since $ (H \cap K)h^\prime =  (H \cap K)h$ implies $ h^\prime h^{-1}\in H\cap K \subset K $ and hence $ Kh^\prime = Kh $. To show that $ \varphi $ is injective, noted that for $ Kh^\prime = Kh (h \in H) $ we have $ Hh^\prime = Hh $, thus $ Kh^\prime \cap Hh^\prime = Kh \cap Hh \Leftrightarrow (H \cap K)h^\prime = (H \cap K)h $. Then $ [H:H \cap K]=|A| \leqslant |B| = [G:K] $. If $ [G:K] $ is finite, clearly $ [H:H\cap K]=[G:K] $ iff $ \varphi $ is surjective. Suppose that $ \varphi $ is surjective but $ G \neq KH $. Then there exist an element $ g \in G $ such that $ g \neq kh $ for all $ k \in K, h \in H $. Then $ Kg \neq K(kh)\Leftrightarrow Kg \neq Kh $. Since $ h $ is arbitrary, the non-existence of $ \varphi^{-1}(Kg) $ and that $ Kg \in B $ contradicts with the fact that $ \varphi $ is a bijection. If $ G = KH $, we have that for any $ Kg \in B(g \in G) $ the mapping $ \varphi^{-1} $ is defined, thus it must be surjective.
-\end{proof}
-\begin{Proposition}
-	Let $ H $ and $ K $ be subgroups of finite index of a group $ G $. Then $ [G:H\cap K] $ is finite and $ [G:H\cap K] \leqslant [G:H][G:K] $. Furthermore, $ [G:H\cap K] =[G:H][G:K]$ iff $ G=HK $.
-\end{Proposition}
-\begin{proof}
-	This proposition is an easy consequence of previous proposition and theorem.
-\end{proof}
-
-
-
-\section{Normality, Quotient Groups, and Homomorphisms}
-\begin{Theorem}
-	If $ N $ is a subgroup of a group $ G $, then the following conditions are equivalent.
-	\begin{enumerate}
-		\item Left and right congruence modulo $ N $ coincide (that is, define the same equivalence relation on $ G $);
-		\item every left coset of $ N $ in $ G $ is also a right coset of $ N $ in $ G $;
-		\item $ aN = Na $ for all $ a\in G $;
-		\item for all $ a\in G $, $ aNa^{-1}\subset N $;
-		\item for all $ a \in G $, $ aN^{-1}=N $
-	\end{enumerate}
-\end{Theorem}
-\begin{Definition}
-	A subgroup $ N $ of a group $ G $ which satisfies the equivalent conditions of the previous theorem is said to be \textit{normal} in $ G $ (or a \textit{normal subgroup} in $ G $); we write $ N\vartriangleleft G$ if $ N $ is normal in $ G $.
-\end{Definition}
-\begin{Theorem}
-	Let $ K $ and $ N $ be subgroups of a group $ G $ with $ N $ normal in $ G $. Then
-	\begin{enumerate}
-		\item $ N \cap K $ is a normal subgroup of $ K $;
-		\item $ N $ is a normal subgroup of $ N \vee K $;
-		\item $ NK = N \vee K = KN $;
-		\item if $ K $ is normal in $ G $ and $ K \cap N = \langle e\rangle $, then $ nk=kn $ for all $ k\in K $ and $ n \in N $.
-	\end{enumerate}
-\end{Theorem}
-\begin{proof}
-	\begin{enumerate}
-		\item If $ n \in N\cap K $, then for an element $ k \in K <G $ $ knk^{-1}\in N $ and $ knk^{-1}\in K $. Thus $ k (N \cap K)k^{-1}\subset N \cap K $ and $ N \cap K \vartriangleleft K $.
-		\item It is trivial.
-		\item All elements of $ N \vee K $ are of the form $ n_1 k_1 n_2 k_2 \cdots n_r k_r $, where $ n_i \in N $ and $ k_i \in K $. Since $ N \vartriangleleft G $, $ n_i k_j = k_j n_i^\prime $ (because $ k_j n_i^\prime k_j^{-1}\in N $) and therefore these elements can be written in the form $ n(k_1\cdots k_r) ,n \in N$. Thus $ N \vee K \subset NK $. Since $ NK \subset N \vee K $, we have $ NK =  N \vee K$. Similarly $ KN = N \vee K $.
-		\item Let $ k \in K $ and $ n \in N $. Then $ nkn^{-1}\in K $ and $ k n^{-1}k^{-1}\in N $. Hence $ (nkn^{-1}) =n(kn^{-1}k^{-1})\in N \cap K = \langle e \rangle $, which implies $ nk = kn $.
-	\end{enumerate}
-\end{proof}
-\begin{Theorem}
-	If $ N \vartriangleleft G $ and $ G/N $ is the set of all (left) cosets of $ N $ in $ G $, then $ G / N $ is a group of order $ [G:N] $ under the binary operation given by $ (aN)(bN)=abN $.
-\end{Theorem}
-\begin{proof}
-	Since the coset $ aN $ is simply the equivalence class of $ a \in G $ under the equivalence relation of congruence modulo $ N $, it suffices to show that congruence modulo $ N $ is a congruence relation, that is, that $ a_1 \equiv a \pmod{N} $ and $ b_1 \equiv b \pmod{N} $ imply $ a_1 b_1 \equiv ab \pmod{N} $. By assumption $ a_1 a^{-1}=n_1 \in N $ and $ b_1 b^{-1}=n_2 \in N $. Hence $ (a_1 b_1)(ab)^{-1} =a_1 b_1 b^{-1}a^{-1}=(a_1 n_2)a^{-1}$. But since $ N $ is normal, $ a_1N = Na_1 $ which implies that $ a_1 n_2 = n_3 a_1$ for some $ n_3 \in N $. Consequently $ (a_1 b_1)(ab)^{-1} = (a_1 n_2)a^{-1}=n_3 a_1 a^{-1} = n_3 n_1 \in N $, whence $ a_1 b_1 \equiv ab \pmod{N} $.
-\end{proof}
-\begin{Definition}
-	If $ N $ is a normal subgroup of a group $ G $, then the group $ G/N $ as defined before is called the \textit{quotient group} of \textit{factor group} of $ G $ by $ N $. If $ G $ is written additively, then the group operation in $ G /N $ is given by $ (a+N)+(b+N)=(a+b)+N $.
-\end{Definition}
-\begin{Example}
-	$ \Zahlen_m = \Zahlen / \langle m \rangle $.
-\end{Example}
-\begin{Theorem}
-	If $ f:G \to H $ is a homomorphism of groups, then the kernel of $ f $ is a normal subgroup of $ G $. Conversely, if $ N $ is normal in $ G $, then the map $ \pi:G \to G/N $ given by $ \pi(a)=aN $ is an epimorphism with kernel $ N $.
-\end{Theorem}
-\begin{proof}
-	If $ x \in \Ker f $ and $ a \in G $, then clearly $ f(axa^{-1})=e $ and therefore $ \ker f \vartriangleleft G $. The map $ \pi $ is clearly surjective and since $ \pi(ab)=ab N = aNbN = \pi(a)\pi(b) $, it is an epimorphism. $ \Ker \pi = \{a \in G |\pi(a)=eN=N \}=\{a\in G |aN = N \}=\{a \in G| a \in N \}=N $.
-\end{proof}
-\begin{Definition}
-	The map $ \pi:G \to G/N $ is called the \textit{canonical epimorphism} or \textit{projection}. Unless otherwise stated $ G \to G/N(N \vartriangleleft G) $ always denotes the canonical epimorphism.
-\end{Definition}
-\begin{Theorem}
-	If $ f:G \to H $ is a homomorphism of groups and $ N $ is a normal subgroup of $ G $ contained in the kernel of $ f $, then there is a unique homomorphism $ \bar{f}:G/N \to H $ such that $ \bar{f}(aN)=f(a) $ for all $ a \in G $. $ \Im f = \Im \bar{f} $ and $ \Ker \bar{f}=(\Ker f)/N $. $ \bar{f} $ is an isomorphism iff $ f$ is an epimorphism and $ N = \Ker f$. 
-\end{Theorem}
-This essential part of the conclusion may be rephrased: there exists a unique homomorphism $ \bar{f}:G/N \to H $ such that the diagram
-\begin{equation}
-	\begin{tikzcd}[row sep=3.5em,column sep=3.5em]
-	G \arrow[r,"f"] \arrow[d] & H \\
-	G/H \arrow[ru,"\bar{f}"']
-	\end{tikzcd} \nonumber
-\end{equation}
-is commutative.
-\begin{proof}
-	If $ b \in aN $, then $ b=an $, $ n \in N $, and $ f(b)=f(an)=f(a)f(n)=f(a) $ since $ N < \Ker f $. Therefore, $ f $ has the same effect on every element of the coset $ aN $ and the map $ \bar{f}:G/N \to H $ given by $ \bar{f}(aN)=f(a) $ is a well-defined function. Since $ \bar{f}(aNbN)=\bar{f}(abN)=f(ab)=f(a)f(b)=\bar{f}(aN)\bar{f}(bN) $, $ \bar{f} $ is a homomorphism. Clearly $ \Im f = \Im \bar{f} $ and
-	\begin{equation}
-		aN \in \Ker \bar{f} \Leftrightarrow f(a)=e \Leftrightarrow a \in \Ker f \nonumber
-	\end{equation}
-	whence $ \Ker \bar{f}=\{aN|a \in \Ker f \} = (\Ker f)/N $. $ \bar{f} $ is unique since it is completely determined by $ f $. It is clear that $ \bar{f} $ is an epimorphism iff $ f$ is. $ \bar{f}$ is a monomorphism if its kernel is the trivial subgroup of $ G/N $, which occurs iff $ \Ker f = N $.
-\end{proof}
-\begin{Definition}
-	A \textit{commutative diagram} is a diagram consists of arrows and objects such that all directed paths that has the same start and endpoints yield the same result.
-\end{Definition}
-\begin{Corollary}(First Isomorphism Theorem)
-	If $ f:G \to H $ is a homomorphism of groups, then $ f $ induces an isomorphism $ G/(\Ker f)\cong \Im f $.
-\end{Corollary}
-\begin{proof}
-	Clearly $ f:G \to \Im f $ is an epimorphism. Apply the previous theorem with $ N=\Ker f $ yield the desired result.
-\end{proof}
-\begin{Corollary}
-	If $ f:G \to H $ is a homomorphism of groups, $ N \vartriangleleft G $, $ M \vartriangleleft H $, and $ f(N)<M $, then $ f $ induces a homomorphism $ \bar{f}:G/N \to H/M $, given by $ aN \mapsto f(a)M $.\\
-	$ \bar{f} $ is an isomorphism iff $ \Im f \vee M = H$ and $ f^{-1}(M)\subset N $. In particular if $ f $ is an epimorphism such that $ f(N)=M $ and $ \Ker f \subset N $, then $ \bar{f} $ is an isomorphism.
-\end{Corollary}
-\begin{proof}
-	Consider the composition $ G \overset{f}{\to} H \overset{\pi}{\to}H/M$. $ N \subset f^{-1}(M) $ because $ f(N)<M $. Apparently $ \pi f(a) = f(a)M $, then the kernel of $ \pi f $ consists of those elements whose image is in $ M $, which is equivalent to $ \Ker \pi f = f^{-1}(M) $. Apply the previous theorem to $ \pi f $ the map $ G/N \to H/M $ given by $ aN \mapsto \pi f(a)=f(a)M $ is a homomorphism that is an isomorphism iff $ \pi f $ is an epimorphism and $ N = \Ker \pi f $. But the latter conditions hold iff $ \Im f \vee M = H $ and $ f^{-1}(M)\subset N $: the second part is trivial; for the first one, $ \pi f $ is an epimorphism implies that there exists some $ g \in G $ such that $ \pi f(g)=hM $ for all distinct cosets in $ H/M $, then $ H = \Im f M = \Im f \vee M $; conversely, if $ \Im f \vee M = H $, we have $ \Im f M =H $, which says that there exist some elements $ f(a_1),f(a_2),\cdots $ in $ \Im f $ that are the distinct cosets of $ M $ in $ H $, which says that there must exists some $ a_i $ for any $ hM \in H/M $. If $ f $ is an epimorphism, then $ H = \Im f = \Im f \vee M $. If $ f(N )=M $ and $ \Ker f \subset N $, then $ f^{-1}(M)\subset N $, whence $ \bar{f} $ is an isomorphism.
-\end{proof}
-\begin{Corollary}(Second Isomorphism Theorem)
-	If $ K $ and $ N $ are subgroups of a group $ G $ with $ N \vartriangleleft G $, then $ K/(N \cap K)\cong NK/N $.
-\end{Corollary}
-\begin{proof}
-	$ N \vartriangleleft NK = N \vee K $. The composition $ K \overset{h}{\to}NK \overset{\pi}{\to} NK/N $ is a homomorphism $ f $ with kernel $ K \cap N $, whence $ \bar{f}:K/K\cap N \cong \Im f $. Every element in $ NK/N $ is of the form $ nkN $. The normality of $ N $ implies that $ nk=kn_1 $, whence $ nkN = kn_1N=kN=f(k) $. Therefore $ f $ is an epimorphism and hence $ \Im f = NK/N $.
-\end{proof}
-\begin{Corollary}(Third Isomorphism Theorem)
-	If $ H $ and $ K $ are normal subgroups of a group $ G $ such that $ K<H $, then $ H /K $ is a normal subgroup of $ G/K $ and $ (G/K)/(H/K)\cong G/H $.
-\end{Corollary}
-\begin{proof}
-	The identity map $ 1_G:G \to G $ has $ 1_G(K)<H $ and therefore induces an epimorphism $ I:G/K \to G/H $, with $ I(aK)=aH $. Since $ H=I(aK) $ iff $ a \in H $, $ \Ker I = \{aK|a \in H \}=H/K $. Hence $ H/K \vartriangleleft G/K $ and $ G/H=\Im I \cong (G/K)/\Ker I = (G/K)/(H/K) $.
-\end{proof}
-\begin{Theorem}
-	If $ f:G \to H $ is an epimorphism of groups, then the assignment $ K \mapsto f(K) $ defines a bijection between the set $ S_f(G) $ of all subgroups $ K $ of $ G $ which contain $ \Ker f $ and the set $ S(H) $ of all subgroups of $ H $. Under the bijection normal subgroups correspond to normal subgroups.
-\end{Theorem}
-\begin{proof}
-	The assignment $ K \mapsto f(K)$ defines a function $ \varphi: S_f(G)\to S(H) $ and $ f^{-1}(J) $ is a subgroup of $ G $ for every subgroup $ J $ of $ H $. Since $ J<H $ implies $ \Ker f <f^{-1}(J) $ and $ f(f^{-1}(J))=J $, $ \varphi $ is surjective (since for any subgroup $ J<H $ we have another subgroup $ J<H $ such that it is the image of a subgroup $ f^{-1}(J) $ in $ G $). $ f^{-1}(f(K))=K \Ker f $ since $ f(K \Ker f )=f(K) f(\Ker f) $, $ f^{-1}(f(K))=K $ iff $ \Ker f <K $. It follows that $ \varphi $ is injective. If $ K \vartriangleleft G $, then $ f(K) = f(gKg^{-1})=f(g)f(K)f(g)^{-1}= f(K) $. The argument for $ J \vartriangleleft H$ and for $ f^{-1}(J) $ is similar.
-\end{proof}
-
-\begin{Corollary}
-	If $ N $ is a normal subgroup of a group $ G $, then every subgroup of $ G/N $ is of the form $ K/N $, where $ K $ is a subgroup of $ G $ that contains $ N $. Furthermore, $ K/N $ is normal in $ G/N $ iff $ K $ is normal in $ G $.
-\end{Corollary}
-\begin{proof}
-	Apply the theorem above to the canonical epimorphism $ \pi :G\to G/N $. If $ N<K<G $, then $ \pi(K)=K/N $.
-\end{proof}
-
-
-
-
-
-
-
-
-
-
-\section{Symmetric, Alternating, and Dihedral Groups}
-\begin{Definition}
-	Let $ i_1,i_2,\cdots, i_r $, $ (r<n) $ be distinct elements of $ I_n=\{1,2,\cdots,n \} $. Then $ (i_1 i_2 i_3 \cdots i_r) $ denotes the permutation that moves each element to the element on its right ($ i_1 $ to $ i_2 $, $ i_r $ to $ i_1 $, etc.) and fix elements in $ I_n $ that are not in $ i_1 ,\cdots,i_r$. $ (i_1i_2 \cdots i_r) $ is called a \textit{cycle} of length $ r $ or an \textit{$ r $-cycle}; a $ 2 $-cycle is called a \textit{transposition}.
-\end{Definition}
-\begin{Definition}
-	The permutations $ \sigma_1,\sigma_2,\cdots,\sigma_r $ of $ S_n $ are said to be \textit{disjoint} provided that for each $ 1\leqslant i \leqslant r $, and every $ k\in I_n $, $ \sigma_i(k)\neq k $ implies $ \sigma_j(k)=k $ for all $ j \neq i $. In other words, an element of $ I_n $ will only be moved once if we apply all of $ \sigma_i$ to it. In this case the composition of disjoint permutations commutes.
-\end{Definition}
-\begin{Theorem}
-	Every nonidentity permutation in $ S_n $ is uniquely a product of disjoint cycles, each of which has length at least $ 2 $.
-\end{Theorem}
-\begin{Definition}
-	Define an equivalence relation on $ I_n $ with a given permutation $ \sigma $ as follows: $ x \sim y $ iff $ y=\sigma^m(x) $ for some $ m \in \Zahlen $. The equivalence classes are called the \textit{orbit} for $ \sigma $ and form a partition of $ I_n $. Note that if $ x \in B_i $, then $ B_i $ consists of all elements $ \{x, \sigma(x),\sigma^2(x),\cdots,\sigma^d(x) \} $ for some $ d \in \Zahlen $.
-\end{Definition}
-\begin{Corollary}
-	The order of a permutation $ \sigma \in S_n $ is the least common multiplier of the order of its disjoint cycles.
-\end{Corollary}
-\begin{Corollary}
-	Every permutation in $ S_n $ can be written as a product of (not necessarily disjoint) transpositions.
-\end{Corollary}
-\begin{Definition}
-	A permutation $ \tau \in S_n $ is said to be \textit{even} (resp. \textit{odd}) if $ \tau $ can be written as a product of an even (resp. odd) number of transpositions.
-\end{Definition}
-The \textit{sign of a permutation $ \tau $}, denoted $ \sgn \tau $, is $ 1 $ or $ -1 $ according as $ \tau $ is even or odd.
-\begin{Theorem}
-	A permutation $ \tau \in S_n (n \geqslant 2)$ cannot be both even and odd.
-\end{Theorem}
-\begin{Theorem}
-	For each $ n \geqslant 2 $, let $ A_n $ be the set of all even permutations of $ S_n $. Then $ A_n $ is a normal subgroup of $ S_n $ of index $ 2 $ and order $ |S_n|/2=n!/2 $. Furthermore $ A_n $ is the only subgroup of $ S_n $ of index $ 2 $.
-\end{Theorem}
-The proof proceeds from the following two lemmas.
-\begin{Lemma}
-	If $ H < G$  and $ [G:H]=2 $, then $ H $ contains all squares of elements in $ G $.
-\end{Lemma}
-\begin{proof}
-	Let $ g \in G$ be arbitrary. if $ gH=H $, the lemma is trivial. If $ gH=aH $ for some $ a \notin H $, then we have $ g^2 H = a^2 H $; if $ aH \neq a^2 H=H $, the lemma obviously holds. If $ aH = a^2 H $, the lemma also holds.
-\end{proof}
-\begin{Lemma}
-	If $ H $ is a subgroup of index $ 2 $ in $ G $, then $ H $ contains all elements of odd order in $ G $.
-\end{Lemma}
-\begin{proof}
-	Suppose that an element $ g \in G $ has order $ 2k+1 (k \in \Natural)$. Then $ H = g^{2k+1}H=(g^{k})^2 H \cdot gH = gH $.
-\end{proof}
-Then it follows that since any permutation of order $ 3 $(like all $ 3 $-cycles) is contained in any subgroup of index $ 2 $ (which must be normal) of $ S_n $, it must be $ A_n $.
-\begin{Definition}
-	A group is said to be \textit{simple} if it has no proper normal subgroups.
-\end{Definition}
-\begin{Theorem}
-	The alternating group $ A_n $ is simple iff $ n \neq 4 $.
-\end{Theorem}
-The proof of the theorem proceeds from two lemmas below.
-\begin{Lemma}
-	Let $ r,s $ be distinct elements of $ \{1,2,\cdots,n\} $. Then $ A_n (n\geqslant 3)$ is generated bu the $ 3 $-cycles $ \{(rsk)|1\leqslant k \leqslant n,k \neq r,s\} $.
-\end{Lemma}
-\begin{Lemma}
-	If $ N \triangleleft A_n(n\geqslant 3)$  and $ N $ contains a $ 3 $-cycle, then $ N=A_n $.
-\end{Lemma}
-\begin{Definition}
-	The subgroup $ D_n $ of $ S_n (n \geqslant 3)$ generated by $ a=(123\cdots n) $ and
-	\begin{align}
-		b&= \begin{pmatrix}
-		1 & 2 & 3 & \cdots & i &\cdots & n-1 & n \\
-		1 & n & n-1 & \cdots & n+2-i & \cdots &  3  & 2
-		\end{pmatrix} \nonumber\\
-	&= \prod_{2\leqslant i < n+2-i} (i \quad n+2-i) \nonumber
-	\end{align}
-is called the \textit{dihedral group of degree $ n $}. The group $ D_n $ is isomorphic to and usually identified with the group of all symmetries of a regular polygon with $ n $ sides.
-\end{Definition}
-\begin{Theorem}
-	For each $ n \geqslant 3 $ the dihedral group $ D_n $ is a group of order $ 2n $ whose generators $ a $ and $ b $ satisfy:
-	\begin{enumerate}
-		\item $ a^n=(1) $; $ b^2=(1)$; $ a^k\neq (1) $ if $ 0<k<n $($ (1) $ is the identity permutation);
-		\item $ ba = a^{-1}b $
-	\end{enumerate}
-Any group $ G $ which is generated by elements $ a,b \in G $ satisfying both conditions for some $ n \geqslant 3 $ is isomorphic to $ D_n $.
-\end{Theorem}
-
-
-\section{Categories: Products, Coproducts, and Free Objects}
-\begin{Definition}
-	A \textit{category} is a class $ \mathscr{C} $ of objects (denoted $ \Cat{A},\Cat{B}, \Cat{C}, ... $) together with
-	\begin{enumerate}
-		\item a class of disjoint sets, denoted $ \hom(\Cat{A},\Cat{B}) $, one(set) for each pair of objects in $ \mathscr{C} $; an element of $ \hom (\Cat{A},\Cat{B}) $ is called a \textit{morphism} from $ \Cat{A} $ to $ \Cat{B} $ and denoted $ f:\Cat{A}\to \Cat{B} $. 
-		\item for each triple $ (\Cat{A},\Cat{B},\Cat{C}) $ of objects of $ \mathscr{C} $ a function
-		\begin{equation}
-			\hom(\Cat{B},\Cat{C}) \times \hom(\Cat{A},\Cat{B})  \to \hom(\Cat{A},\Cat{C}) \nonumber
-		\end{equation}
-		which is the \textit{composite} of morphisms. The composition must be associative. An identity morphism $ 1_{\Cat{B}}:\Cat{B} \to \Cat{B} $ also exists and for any $ f:\Cat{A}\to \Cat{B} $ and $ g:\Cat{B}\to \Cat{C} $
-		\begin{equation}
-			1_{\Cat{B}} \circ f = f\qquad \text{and}\qquad g \circ 1_{\Cat{B}} = g \nonumber
-		\end{equation}
-	\end{enumerate}
-\end{Definition}
-\begin{Definition}
-	In a category $ \mathscr{C} $ a morphism $ f:\Cat{A} \to \Cat{B} $ is called an \textit{equivalence} if there is in $ \mathscr{C} $ a morphism $ g:\Cat{B} \to \Cat{A}  $ such that $ g \circ f=1_{\Cat{A}} $ and $ f \circ g=1_{\Cat{B}} $. The composite of two equivalences, when defined, is an equivalence. If $ f:\Cat{A} \to \Cat{B}$ is an equivalence, $ \Cat{A} $ and $ \Cat{B} $ are said to be \textit{equivalent}.
-\end{Definition}
-\begin{Example}
-	For $ \mathscr{S} $, the class of all sets, equipped with functions between these sets as morphisms, a morphism is an equivalence iff it is bijective. 
-\end{Example}
-\begin{Example}
-	For $ \mathscr{G} $, the category of all groups, equipped with homomorphisms between these groups as morphisms, a morphism is an equivalence iff it is an isomorphism.
-\end{Example}
-\begin{Example}
-	A (multiplicative) group $ G $ can be considered as a category with one object $ G $. Let $ \hom(G,G) $ be the set of elements of $ G $(then each morphism is an element of $ G $); composite of morphisms is simply the composition given by the binary operation in $ G $. Every morphism is an equivalence and $ 1_G $ is the identity element $ e $ of $ G $. \textbf{This example shows that morphisms need not to be functions}. In this case it is said that the category is not concrete.
-\end{Example}
-
-\begin{Definition}
-	Let $ \mathscr{C} $ be a category and $ \{\Cat{A}_i|i\in I \} $ a family of objects of $ \mathscr{C} $. A \textit{product} for the family $ \{\Cat{A}_i|i\in I \} $ is an object $ \Cat{P} $ of $ \mathscr{C} $ together with a family of morphisms $ \{\pi_i: \Cat{P} \to \Cat{A_i}|i \in I \} $ such that for any object $ \Cat{B} $ and family of morphisms $ \{\varphi_i: \Cat{B} \to \Cat{A_i}|i \in I \} $, there is a unique morphism $ \varphi :\Cat{B} \to \Cat{P} $ such that $ \pi_i \circ \varphi = \varphi_i $ for all $ i \in I $. The product of $ \{\Cat{A}_i|i\in I \} $ is usually denoted $ \prod_{i\in I}\Cat{A_i} $.
-\end{Definition}
-When $ I=\{1,2 \} $, the product $ \Cat{P}$ expressed using a commutative diagram:
-\begin{tikzpicture}
-\begin{tikzcd}[row sep=3.5em,column sep=3.5em]
-& \Cat{B} \arrow[ld,"\varphi_1"] \arrow[d,"\varphi"] \arrow[rd,"\varphi_2"] \\
-\Cat{A_1} & \Cat{P} \arrow[l,"\pi_1"] \arrow[r,"\pi_2"] & \Cat{A_2} 
-\end{tikzcd} \nonumber
-\end{tikzpicture}
-\newpara
-In the category of sets the Cartesian product $ \prod_{i\in I} A_i $ is a product of the family of sets $ \{A_i \} $. The map $ \pi_i $ would be the canonical projections onto the $ i $th components. The map $ \varphi $ would be $ (\varphi_1,\varphi_2,\cdots,\varphi_i) $ that takes an element of $ B $ and maps it to an element of $ \prod_{i\in I} A_i $.
-\begin{Theorem}
-	If $ (\Cat{P},\{\pi_i \}) $ and $ (\Cat{Q},\{\psi_i\}) $ are both products of the family $ \{\Cat{A_i}|i\in I  \} $ of objects of a category $ \mathscr{C} $, then $ \Cat{P} $ and $ \Cat{Q} $ are equivalent.
-\end{Theorem}
-\begin{Definition}
-	A \textit{coproduct} (or \textit{sum}) for the family $ \{\Cat{A_i}|i \in I \} $ of objects in a category $ \mathscr{C} $ is an object $ \Cat{S} $ of $ \mathscr{C} $, together with a family of morphisms $ \{\iota_i:\Cat{A_i}\to \Cat{S}|i \in I \} $ such that for any object $ \Cat{B} $ and family of morphisms $ \{\psi_i:\Cat{A_i}\to \Cat{B} |i \in I \} $, there is a unique morphism $ \psi:\Cat{S} \to \Cat{B} $ such that $ \psi \circ \iota_i = \psi_i $ for all $ i \in I $. Although no universal notation exists for coproducts, it is usually denoted $ \coprod_{i \in I }\Cat{A_i} $.
-\end{Definition}
-It's easy to see that by reversing the arrows in the commutative diagram above for product we obtain the diagram for coproduct. 
-\begin{Theorem}
-		If $ (\Cat{S},\{\iota_i \}) $ and $ (\Cat{S^\prime},\{\lambda_i\}) $ are both products of the family $ \{\Cat{A_i}|i\in I  \} $ of objects of a category $ \mathscr{C} $, then $ \Cat{S} $ and $ \Cat{S^{\prime}} $ are equivalent. 
-\end{Theorem}
-\begin{Definition}
-	A \textit{concrete category} is a category $ \mathscr{C} $ together with a function $ \sigma $ that assigns to each object $ \Cat{A} $ of $ \mathscr{C} $ a set $ \sigma(\Cat{A}) $(called the underlying set of $ \Cat{A} $) in such a way that:
-	\begin{enumerate}
-		\item every morphism $ \Cat{A} \to \Cat{B} $ of $ \mathscr{C} $ is a function on the underlying sets $ \sigma(\Cat{A})\to \sigma(\Cat{B}) $;
-		\item the identity morphism of each object $ \Cat{A} $ of $ \mathscr{C} $ is the identity function on the underlying set $ \sigma(\Cat{A}) $;
-		\item composition of morphisms in $ \mathscr{C} $ agrees with composition of functions on their underlying sets.
-	\end{enumerate}
-\end{Definition}
-\textbf{It is worth noticing that in a concrete category morphisms are also functions on their corresponding underlying sets, but maps, functions on these underlying sets, might not be morphisms.}
-\begin{Definition}
-	Let $ \Cat{F} $ be an object in a concrete category $ \mathscr{C} $, $ X $ a nonempty set, and $ i:X \to \Cat{F} $ a map (of sets). $ \Cat{F} $ is \textit{free on the set $ X $} provided that for any object $ \Cat{A} $ of $ \mathscr{C} $ and maps (of sets) $ f:X \to \Cat{A} $, there exists a unique morphism of $ \mathscr{C} $, $ \bar{f}:\Cat{F}\to \Cat{A} $, such that $ \bar{f}i=f $ (as a map of sets $ X \to \Cat{A} $).
-\end{Definition}
-\begin{tikzpicture}
-\begin{tikzcd}[row sep=3.5em,column sep=3.5em]
- \Cat{F} \arrow[rd,"\bar{f}"] \\
-X \arrow[u,"i"] \arrow[r,"f"]& \Cat{A}
-\end{tikzcd} \nonumber
-\end{tikzpicture}
-\newpara
-The essential fact about a free object $ \Cat{F} $ is that in order to define a morphism with domain $ \Cat{F} $, it suffices to specify the image of the subset $ i(X) $.
-\begin{Example}
-	Let $ G $ be any group and $ g \in G $. Then the map $ \bar{f}:\Zahlen \to G $ defined by $ \bar{f}(n)=g^n $ is the unique homomorphism $ \Zahlen \to G $ such that $ 1 \mapsto g $. Consequently, if $ X = \{1\} $ and $ i:X \to \Zahlen $ is the inclusion map, then $ \Zahlen $ is free on $ X $ in the category of groups. In other words, to determine a unique homomorphism from $ \Zahlen $ to $ G $ we need only specify the image of $ 1 \in \Zahlen $ (that is, the image of $ i(X) $).
-\end{Example}
-\begin{Theorem}
-	If $ \mathscr{C} $ is a concrete category, $ \Cat{F} $ and $ \Cat{F^\prime} $ are objects of $ \mathscr{C} $ such that $ \Cat{F} $ is free on the set $ X $ and $ \Cat{F^\prime} $ is free on the set $ X^\prime $ and $ |X|=|X^\prime| $, then $ \Cat{F} $ is equivalent to $ \Cat{F^\prime} $.
-\end{Theorem}
-We have seen that two products(resp. coproducts) for a given family of objects are equivalent. Likewise two free objects on the same set are equivalent. This characteristic is captured via the following definition.
-\begin{Definition}
-	An object $ \Cat{I} $ in a category $ \mathscr{C} $ is said to be \textit{universal} (or \textit{initial}) if for each object $ \Cat{C} $ of $ \mathscr{C} $ there exists one and only one morphism $ \Cat{I} \to \Cat{C} $. An object $ \Cat{T} $ of $ \mathscr{C} $ is said to be \textit{couniversal} (or \textit{terminal}) if for each object $ \Cat{C} $ of $ \mathscr{C} $ there exists one and only one morphism $ \Cat{C} \to \Cat{T} $. 
-\end{Definition}
-\begin{Theorem}
-	Any two universal (resp. couniversal) objects in a category $ \mathscr{C} $ are equivalent.
-\end{Theorem}
-\begin{Example}
-	The trivial group is both universal and couniversal in the category of groups.
-\end{Example}
-\begin{Definition}
-	In the category of sets, the \textit{disjoint union} of the sets $ A_i $ is defined on a family of sets $ \{A_i | i \in I \} $ as $ \bigcup A_i=\{(a,i)\in (\bigcup_{i \in I}A_i) \times I|a\in A_i \} $(notice the subscript under the union sign).
-\end{Definition}
-
-
-
-
-\section{Direct Products and Direct Sums}
-\begin{Definition}
-	We extend the definition of the \textit{product} $ G \times H $ of groups $ G $ and $ H $ to an arbitrary family $ \{G_i| i\in I \} $ of groups, in which the multiplication is still defined component-wise. It is called the \textit{direct product}(or \textit{complete direct sum}) of the family of groups. If $ I=\{1,2,\cdots,n \} $, $ \prod_{i\in I}G_i $ is usually denoted $ G_1 \times G_2 \times G_3 \times \cdots \times G_n$ (or in additive notation, $ G_1 \bigoplus G_2 \bigoplus G_3 \bigoplus \cdots \bigoplus G_n$).
-\end{Definition}
-
-\begin{Theorem}
-	If $ \{G_i | i \in I \} $ is a family of groups, then
-	\begin{enumerate}
-		\item the direct product is a group;
-		\item for each $ k \in I $, the map $ \pi_k:\prod_{i\in I} G_i \to G_k $ given by $ f \mapsto f(k) $(here $ f: I \to \bigcup_{i \in I}G_i $ and $ f(i)\in G_i $ for each $ i $)[or $ \{a_i \}\mapsto a_k $] is an epimorphism of groups.
-	\end{enumerate}
-\end{Theorem}
-\begin{Definition}
-	The mappings $ \pi_k $ previously mentioned are called the \textit{canonical projections} of the direct product.
-\end{Definition}
-\begin{Theorem}
-	$ \prod_{i=1} G_i $ is a product in the category of groups.
-\end{Theorem}
-\begin{Definition}
-	The \textit{(external) weak direct product} of a family of groups $ \{G_i | i\in I \} $, denoted $ \prod_{i \in I}^{w}G_i $, is the set of all $ f \in \prod_{i \in I}G_i $ such that $ f(i)=e_i $ for all but a finite number of $ i \in I $. In other words $ \{g_ i\} (g_i \in G_i)$ is $ e_i $ for all but a finite number of $ i \in I $. If all the groups $ G_i $ are (additive) abelian, $ \prod_{i \in I}^{w}G_i $ is usually called the \textit{(external) direct sum} and is denoted $ \sum_{i \in I}G_i $.
-\end{Definition}
-\begin{Theorem}
-	If $ \{G_i | i \in I \} $ is a family of groups, then
-	\begin{enumerate}
-		\item $ \prod_{i \in I}^{w}G_i $ is a normal subgroup of $ \prod_{i \in I} G_i $;
-		\item for each $ k \in I $, the map $ \iota_k:G_k \to \prod_{i \in I}^{w}G_i  $ given by $ \iota_k(a)=\{a_i \}_{i \in I} $, where $ a_i=e $ for $ i \neq k $ and $ a_k = a $, is a monomorphism of groups;
-		\item for each $ i \in I $, $ \iota_i(G_i) $ is a normal subgroup of $ \prod_{i \in I} G_i $.
-	\end{enumerate}
-\end{Theorem}
-\begin{Definition}
-	The map $ \iota_k $ mentioned above are called the \textit{canonical injections}.
-\end{Definition}
-\begin{Theorem}
-	$ \sum_{i \in I}A_i $ is a coproduct in the category of abelian groups.
-\end{Theorem}
-The theorem is false if the word abelian is omitted.
-\begin{Theorem}
-	Let $ \{N_i | i\in I \} $ be a family of normal subgroups of a group $ G $ such that
-	\begin{enumerate}
-		\item $ G=\angbracket{\bigcup_{i \in I}N_i } $;
-		\item for each $ k \in I $, $ N_k\cap \angbracket{\bigcup_{i \neq k}N_i} =\angbracket{e}$.
-	\end{enumerate}
-Then $ G \cong \prod_{i \in I}^{w}N_i $.
-\end{Theorem}
-\begin{Definition}
-	Let $ \{N_i | i \in I \} $ be a family of normal subgroups of a group $ G $ such that $ G=\angbracket{\bigcup_{i \in I}N_i } $ and for each $ k \in I $, $ N_k\cap \angbracket{\bigcup_{i \neq k}N_i} =\angbracket{e}$. Then $ G $ is said to be the \textit{internal weak direct product} of the family $ \{N_i | i \in I \} $ (or the \textit{internal direct sum} if $ G $ is (additive) abelian). Notation-wise $ G=\prod_{i \in I}^{w}N_i $ means that $ G $ is the internal weak direct product of the family of its subgroups $ \{N_i | i\in I \} $.
-\end{Definition}
-\begin{Theorem}
-	Let $ \{N_i | i \in I \} $ be a family of normal subgroups of a group $ G $. $ G $ is the internal weak direct product of the family $ \{N_i | i\in I \} $ iff every nonidentity element of $ G $ is a unique product $ a_{i_1}a_{i_2}\cdots a_{i_n} $ with $ i_1,\cdots,i_n $ distinct elements of $ I $ and $ e \neq a_{i_k}\in N_{i_k} $ for each $ k = 1,2,\cdots, n $.
-\end{Theorem}
-
-\begin{Theorem}
-	Let $ \{f_i:G_i \to H_i | i \in I \} $ be a family of homomorphisms of groups and let $ f=\prod f_i $ be the map $ \prod_{i=1} G_i \to \prod_{i \in I} H_i $, given by $ \{a_i \} \mapsto \{f_i(a_i) \}$. Then $ f $ is a homomorphism of groups such that $ f(\prod_{i \in I}^{w}G_i)\subset \prod_{i \in I}^{w}H_i $, $ \Ker f = \prod_{i \in I} \Ker f_i $ and $ \Im f = \prod_{i \in I}\Im f_i $. Consequently $ f $ is a monomorphism (resp. epimorphism) iff each $ f_i $ is.
-\end{Theorem}
-\begin{Corollary}
-	Let $ \{G_i | i \in I \} $ and $ \{N_i | i\in I \} $ be families of groups such that $ N_i $ is a normal subgroup of $ G_i $ for each $ i \in I $.
-	\begin{enumerate}
-		\item $ \prod_{i \in I} N_i $ is a normal subgroup of $ \prod_{i \in I} G_i  $ and $ \prod_{i \in I} G_i/\prod_{i \in I} N_i  \cong \prod_{i \in I} G_i/N_i $.
-		\item $ \prod_{i \in I}^w N_i $ is a normal subgroup of $ \prod_{i \in I}^w G_i  $ and $ \prod_{i \in I}^w G_i/\prod_{i \in I}^w N_i  \cong \prod_{i \in I}^w G_i/N_i $.
-	\end{enumerate}
-\end{Corollary}
-\begin{proof}
-	Use the First Isomorphism Theorem.
-\end{proof}
-\begin{Definition}
-	A normal subgroup $ H $ of a group $ G $ is said to be a \textit{direct factor}(\textit{direct summand} if $ G $ is additive abelian) if there exists a (normal) subgroup $ K $ of $ G $ such that $ G = H \times K $.
-\end{Definition}
-\begin{Theorem}
-	If $ GCD(m,n)=1 $, then $ \Zahlen_{mn}\cong \Zahlen_m \times \Zahlen_{n} $
-\end{Theorem}
-\begin{Theorem}
-	If in a finite group $ G $ all elements(except the identity) are of order $ 2 $, $ |G|=2^n $ for some $ n $ and
-	\begin{equation}
-		G\cong \Zahlen_2 \times \cdots \times \Zahlen_2 \nonumber
-	\end{equation}
-\end{Theorem}
-
-
-
-
-
-\section{Free Groups, Free Products, Generators and Relations}
-\begin{Definition}
-	Given a set $ X $ and a group $ F $ that is free on $ X $ can be constructed in the following way: If $ X= \varnothing $, $ F $ is the trivial group; otherwise let $ X^{-1} $  be a set disjoint from $ X $ such that $ |X| = |X^{-1}| $. Choose a bijection $ X \to X^{-1} $ and denote the image of $ x \in X $ by $ x^{-1} $; finally choose a set that is disjoint from $ X \cup X^{-1} $ and has exactly one element, denote this element by $ 1 $. A \textit{word} on $ X $ is a sequence $ (a_1,a_2,\cdots) $ with $ a_i \in X \cup X^{-1} \cup \{1 \} $ such that for some $ n \in \Natural $, $ a_k=1 $ for all $ k \geqslant n $. The constant sequence $ (1,1,\cdots) $ is called the \textit{empty word} and is denoted $ 1 $. A word $ (a_1,a_2,\cdots) $ on $ X $ is said to be \textit{reduced} provided that
-	\begin{enumerate}
-		\item for all $ x \in X $, $ x $ and $ x^{-1} $ are not adjacent;
-		\item $ a_k=1 $ implies $ a_i=1 $ for all $ i \geqslant k $(that is, $ 1 $s only "appear at the end`` of the word).
-	\end{enumerate} 
-A nonempty reduced word is denoted $ x_1^{\lambda_1}x_2^{\lambda_2}\cdots x_n^{\lambda_n} $, where $ n \in \Natural $, $ x_i \in X $ and $ \lambda_i = \pm 1 $. Two reduced words are equal iff both are the empty word or they have the same length and their individual components and exponents are the same. Consequently the map from $ X $ into the set $ F(X) $ of all reduced words on $ X $ given by $ x \mapsto x^1 = x $ is injective. Now we define a binary operation on the set $ F = F(X) $. The empty word $ 1 $ act as the identity element. The product of nonempty reduced words is given by juxtaposition(If in the final product an entry $ x_i $ is adjacent to its image $ x_i^{-1} $, they are "cancelled``). Thus the definition ensures that the product of reduced words is a reduced word.
-\end{Definition}
-\begin{Theorem}
-	If $ X $ is a nonempty set and $ F=F(X) $ is the set of all reduced words on $ X $, then $ F $ is a group under the binary operation defined above and $ F = \angbracket{X} $.
-\end{Theorem}
-The group $ F=F(X) $ is called the \textit{free group on the set $ X $}.
-\begin{Theorem}
-	$ F $ is free on the set $ X $ in the category of groups.
-\end{Theorem}
-
-\begin{Corollary}
-	Every group $ G $ is the homomorphic image of a free group.
-\end{Corollary}
-
-\begin{Definition}
-	If $ G=\angbracket{X} $ is a group, $ F $ is the free group on $ X $ and $ N $ is the kernel of the epimorphism $ F \to G $ of previous Corollary, the equation $ x_1^{\delta_1}\cdots x_n^{\delta_n}=e \in G $(where $ x_1^{\delta_1}\cdots x_n^{\delta_n} \in F$ is a generator of $ N $) is called a \textit{relation} on the generators $ x_i $.
-\end{Definition}
-A given group $ G $ can be completely described by specifying a set $ X $ of generators of $ G $ and a suitable set $ R $ of relations on these generators.
-\begin{Definition}
-	Let $ X $ be a set and $ Y $ a set of (reduced) words on $ X $. A group $ G $ is said to be the \textit{group defined by the generators $ x \in X $ and relations $ w =e_G (w \in Y) $} provided $ G \cong F/N $, where $ F $ is the free group on $ X $ and $ N $ the normal subgroup of $ F $ generated by $ Y $. One says that $ (X|Y) $ is a \textit{presentation} of $ G $.
-\end{Definition}
-\begin{Example}
-	A finite cyclic group $ \angbracket{a} $ has presentation $ (a|a^n=e) $.
-\end{Example}
-\begin{Example}
-	The presentation of a free group on that set is $(F|\varnothing) $(that's why it's called "free``: the terminology comes from free of relations ).
-\end{Example}
-\begin{Example}
-	The dihedral group $ D_n $ has presentation $ (\{a,b \}|a^n=e, b^2=e,abab=e(\text{or } ba=a^{-1}b)) $
-\end{Example}
-\begin{Theorem}[Van Dyck]
-	Let $ X $ be a set, $ Y $ a set of (reduced) words on $ X $ and $ G $ the group defined by the generators $ x \in X $ and relations $ w = e(w \in Y) $. If $ H $ is any group such that $ H = \angbracket{X} $ and $ H $ satisfies all the relations $ w = e(w \in Y)  $(that is, these two groups $ G $ and $ H $ has the same presentation), then there is an epimorphism $ G \to H $.
-\end{Theorem}
-\begin{Definition}
-	Given a family of groups $ \{G_i|i \in I \} $ we may assume (by relabeling their elements if necessary) that the $ G_i $ are mutually disjoint sets. Let $ X=\bigcup_{i \in I} G_i $ and let $ \{1 \} $ be a one-element set disjoint from $ X $. A \textit{word} on $ X $ is any sequence $ (a_1,a_2,\cdots) $ such that $ a_i \in X \cup \{ 1\} $ and for some $ n \in \Natural $, $ a_i =1 $ for all $ i \geqslant n $. A word is \textit{reduced} provided:
-	\begin{enumerate}
-		\item no $ a_i \in X $ is the identity element in its group $ G_j $;
-		\item for all $ i,j \geqslant 1 $, $ a_i $ and $ a_{i+1} $ are not in the same group $ G_j $;
-		\item $ a_k=1 $ implies $ a_i=1 $ for all $ i \geqslant k $.
-	\end{enumerate}
-Let $ \prod_{i \in I}^{\ast}G_i $(or $ G_1 \ast G_2 \ast \cdots \ast G_n $ if $ I $ is finite) be the set of all reduced words on $ X $. $ \prod_{i \in I}^{\ast}G_i $ forms a group, called the \textit{free product} of the family $ \{G_i | i\in I \} $, under the binary operation defined as follows. $ 1 $ is the identity element and the product of reduced words to be given by juxtaposition and necessary cancellation as well as contraction. Finally for each $ k \in I $ the map $ \iota_k:G_k \to \prod_{i \in I}^{\ast}G_i $ given by $ e \mapsto 1 $ and $ a \mapsto a = (a,1,1,\cdots) $ is a monomorphism of groups.
-\end{Definition}
-\begin{Theorem}
-	The free product $ \prod_{i \in I}^{\ast}G_i $ with $ \iota_i $ is a coproduct in the category of groups.
-\end{Theorem}
-
-
-
+\include{1_Groups/groups}
 \chapter{The Structure of Groups}
 \section{Free Abelian Groups}
 \section{Finitely Generated Abelian Groups}
-\section{The Krull-Schmidt Theorem}
+\section{The Krull-Schmidt theorem}
 \section{The Action of a Group on a Set}
-\begin{Definition}
+\begin{definition}
 	An \textit{action} of a group $ G $ on a set $ S $ is a function $ G \times S \to S $(usually denoted by $ (g,x)\mapsto gx $) such that for all $ x\in S $ and $ g_1,g_2\in G $:
 	\begin{enumerate}
 		\item $ ex=x $;
 		\item $ (g_1g_2)x=g_1(g_2 x) $.
 	\end{enumerate}
 When such an action is given, $ G $ \textit{acts on the set $ S $}.
-\end{Definition}
-\begin{Definition}
+\end{definition}
+\begin{definition}
 	Let $ G $ be a group and $ H $ a subgroup. An action of the group $ H $ on the set $ G $ is given by $ (h,x)\mapsto hx $, where $ hx $ is the product in $ G $. The action of $ h\in H $ on $ G $ is called a \textit{(left) translation}.
-\end{Definition}
-\begin{Definition}
+\end{definition}
+\begin{definition}
 		Let $ G $ be a group and $ H $ a subgroup. An action of $ H $ on the set $ G $, given by $ (h,x)\mapsto hxh^{-1} $, is called \textit{conjugation by $ h $} and $ hxh^{-1} $ is said to be a \textit{conjugate of $ x $}. $ H $ can also act on the set $ S $ of all subgroups of $ G $ by conjugation $ (h,K)\mapsto hKh^{-1} $. The group $ hKh^{-1} $ is said to be \textit{conjugate to $ K $}.
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	Let $ G $ be a group that acts on a set $ S $.
 	\begin{enumerate}
 		\item The relation on $ S $ defined by
@@ -766,25 +86,25 @@ When such an action is given, $ G $ \textit{acts on the set $ S $}.
 		is an equivalence relation.
 		\item For each $ x \in S $, $ G_x=\{g\in G|gx=x \} $ is a subgroup of $ G $.
 	\end{enumerate}
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	The equivalence classes of the equivalence relation previously mentioned are called the \textit{orbits} of $ G $ on $ S $; the orbit of $ x \in S $ is denoted $ \bar{x} $. The subgroup $ G_x$ is called the \textit{subgroup fixing $ x $}, the \textit{isotropy group of $ x $}, or the \textit{stabilizer of $ x $}.
-\end{Definition}
-\begin{Lemma}
+\end{definition}
+\begin{lemma}
 	If $ G $ acts on $ S $, then for any $ x\in S $
 	\begin{equation}
 		|[G:\Stab x]|=| \Orb x|\nonumber
 	\end{equation}
-\end{Lemma}
-\begin{Theorem}
+\end{lemma}
+\begin{theorem}
 		If $ G $ acts on $ S $, then for any $ x\in S $
 	\begin{equation}
 	|G|=|\Stab x| |\Orb x|\nonumber
 	\end{equation}
-\end{Theorem}
+\end{theorem}
 
 
-\section{The Sylow Theorem}
+\section{The Sylow theorem}
 \section{Classification of Finite Groups}
 \section{Nilpotent and Solvable Groups}
 \section{Normal and Subnormal Series}
@@ -792,7 +112,7 @@ When such an action is given, $ G $ \textit{acts on the set $ S $}.
 
 \chapter{Rings}
 \section{Rings and Homomorphisms}
-\begin{Definition}
+\begin{definition}
 	A \textit{ring} is a nonempty set $ R $ together with two binary operations (usually denoted as addition $ (+) $ and multiplication) such that:
 	\begin{enumerate}
 		\item $ (R,+) $ is an abelian group;
@@ -800,9 +120,9 @@ When such an action is given, $ G $ \textit{acts on the set $ S $}.
 		\item $ a(b+c)=ab+ac $ and $ (a+b)c = ac + bc $ (left and right distributive laws).
 	\end{enumerate}
 If in addition the multiplication is commutative, $ R $ is said to be a \textit{commutative ring}. If $ R $ contains an identity element for multiplication, $ R $ is said to be a \textit{ring with identity}.
-\end{Definition}
+\end{definition}
 The additive identity of the ring is called the zero element and denoted $ 0 $.
-\begin{Theorem}
+\begin{theorem}
 	Let $ R $ be a ring. Then
 	\begin{enumerate}
 		\item $ 0a = a0 = 0 $ for all $ a \in R $;
@@ -813,19 +133,19 @@ The additive identity of the ring is called the zero element and denoted $ 0 $.
 		(\sum_{i=1}^{n}a_i)(\sum_{j=1}^{m}b_j) = \sum_{i=1}^{n} \sum_{j=i}^{m}a_i b_j \qquad \text{for all}\qquad a_i,b_j \in R \nonumber
 		\end{equation}
 	\end{enumerate}
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	A nonzero element $ a $ in a ring $ R $ is said to be \textit{left} (resp. \textit{right}) \textit{zero divisor} if there exists a nonzero $ b \in R$ such that $ ab=0 $ (resp. $ ba=0 $). A \textit{zero divisor} is an element of $ R $ which is both a left and a right zero divisor.
-\end{Definition}
+\end{definition}
 A ring has no zero divisors iff the right and left cancellation laws hold in this ring.
-\begin{Definition}
+\begin{definition}
 	An element $ a $ in a ring $ R $ with identity is said to be \textit{left} (resp. \textit{right}) \textit{invertible} if there exists $ c \in R $ (resp. $ b \in R $) such that $ ca= 1_R $ (resp. $ ab = 1_R $). The element $ c $ (resp. $ b $) is called a \textit{left} (resp. \textit{right}) \textit{inverse} of $ a $. An element $ a \in R $ that is both left and right invertible is said to be \textit{invertible} or to be a \textit{unit}.
-\end{Definition}
+\end{definition}
 A unit's left and right inverses necessarily coincide. The set of units in a ring $ R $ with identity forms a group under multiplication.
-\begin{Definition}
+\begin{definition}
 	A commutative ring $ R $ with identity $ 1_R \neq 0 $ and no zero divisors is called an \textit{integral domain}. A ring $ D $ with identity $ 1_D \neq 0 $ in which every nonzero element is a unit is called a \textit{division ring}. A \textit{field is a commutative division ring}.
-\end{Definition}
-\begin{Theorem}[Binomial Theorem]
+\end{definition}
+\begin{theorem}[Binomial theorem]
 	Let $ R $ be a ring with identity, $ n $ a positive integer, and $ a,b, a_1,a_2,\cdots, a_s \in R $.
 	\begin{enumerate}
 		\item If $ ab=ba $, then
@@ -838,43 +158,43 @@ A unit's left and right inverses necessarily coincide. The set of units in a rin
 		\end{equation}
 		where the sum is over all s-tuples $ (i_1,i_2,\cdots,i_s) $ such that $ i_1 + i_2 + \cdots +i_s = n $.
 	\end{enumerate}
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	A \textit{homomorphism of rings} $ f :R \to S$ between two rings $ R $ and $ S $ is a mapping that preserves the ring structure, that is
 	\begin{equation}
 		f(r_1)f(r_2)=f(r_1 r_2) \qquad \text{and}\qquad f(r_1 + r_2)= f(r_1)+f(r_2) \nonumber
 	\end{equation}
 	for all $ r_1, r_2 \in R $. Because of its similarity with respect to the homomorphisms of groups, the same terminology (like monomorphisms, epimorphisms and isomorphisms for injective, surjective and bijective homomorphisms respectively) will also apply. A monomorphism of rings $ R \to S $ is sometimes called an \textit{embedding of $ R $ in $ S $}. The \textit{kernel} and \textit{image} of homomorphisms of rings are defined similar to those of group homomorphisms -- the only difference is that the homomorphism maps the elements in its kernel to the identity element $ 0 $ of the additive abelian group. \textbf{In fact if $ R $ and $ S $ both have identities $ 1_R $ and $ 1_S $ it is not required that a homomorphism maps $ 1_R $ to $ 1_S $.}
-\end{Definition}
+\end{definition}
 \begin{Example}
 	The canonical map $ \Zahlen \to \Zahlen_m $ defined by $ k \mapsto \bar{k} $ is an epimorphism of rings.
 \end{Example}
-\begin{Definition}
+\begin{definition}
 	Let $ R $ be a ring. If there is a least positive integer $ n $ such that $ na=0 $ for all $ a \in R $, then $ R $ is said to \textit{have characteristic $ n $}. If no such $ n $ exists $ R $ is said to \textit{have characteristic $ 0 $}.(Notation: $ \Char R = n $)
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	Let $ R $ be a ring with identity $ 1_R $ and characteristic $ n > 0 $.
 	\begin{enumerate}
 		\item If $ \varphi:Z \to R $ is the map given by $ m \mapsto m 1_R $, then $ \varphi $ is a homomorphism with kernel $ \angbracket{n} $.
 		\item $ n $ is the least positive integer such that $ n 1_r = 0 $.
 		\item If $ R $ has no zero divisors($ R $ is an integral domain), then $ n $ is prime.
 	\end{enumerate}
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 	Every ring $ R $ may be embedded in a ring $ S $ with identity. The ring $ S $ (which is not unique) may be chosen to be either of characteristic zero or of the same characteristic as $ R $.
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	A ring $ R $ such that $ a^2 =a  $ for all $ a \in R $ is called a \textit{Boolean Ring}. Every Boolean ring is commutative and $ a+a =0 $ for all $ a \in R $.
-\end{Definition}
-\begin{Theorem}[a.k.a The Freshman's Dream]
+\end{definition}
+\begin{theorem}[a.k.a The Freshman's Dream]
 	If $ R $ is a commutative ring with identity of prime characteristic $ p $ and $ a, b \in R $, then $ (a \pm b)^{p^n}=a^{p^n}\pm b^{p^n} $ for all $ n \geqslant 0 \in \Zahlen $ (note that $ b = -b $ if $ p=2 $).
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	An element $ a $ of a ring is \textit{nilpotent} if $ a^n=0 $ for some integer $ n $.
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	In a commutative ring $ a+b $ is nilpotent if $ a $ and $ b $ are.
-\end{Theorem}
+\end{theorem}
 However, the theorem is not necessarily true in a non-commutative ring. For example, in the ring over all $ 2 \times 2 $ matrices over $ \Real $ where addition and multiplication are defined respectively by matrix addition and multiplication the elements $ \begin{pmatrix}
 0 &1 \\
 0 &0
@@ -882,19 +202,19 @@ However, the theorem is not necessarily true in a non-commutative ring. For exam
 0 &0 \\
 1 &0
 \end{pmatrix} $ are nilpotent(their square equals to the additive zero in this ring), but their sum is not.
-\begin{Theorem}
+\begin{theorem}
 	A finite ring with more than one element and no zero divisors is a division ring.
-\end{Theorem}
+\end{theorem}
 \begin{proof}
 	For each non-zero element $ a \in R $ define the map $ \varphi_a : R \to R $ given by $ x \mapsto ax (x \in R)$. Show that the map is a bijection and thus an identity exists as well as $ a $ is invertible.
 \end{proof}
-\begin{Definition}
+\begin{definition}
 	The homomorphism $ R \to R $ defined on a commutative ring $ R $ with identity and prime characteristic $ p $ given by $ r \mapsto r^p $ is called the \textit{Frobenius homomorphism}.
-\end{Definition}
-\begin{Definition}
+\end{definition}
+\begin{definition}
 	If $ R $ is a ring, then so is $ R^{op} $, where $ R^{op} $ is defined as follows: their underlying set is the same; their addition coincide; the multiplication in $ R^{op} $ is defined by $ a \circ b = ba $, where $ ba $ is the product in $ R $. The ring $ R^{op} $ is called the \textit{opposite ring} of $ R $.
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	If $ R $ and $ S $ are rings and $ R^{op} $ and $ S^{op} $ are their respective opposite rings, then
 	\begin{enumerate}
 	\item	$ R $ has an identity iff $ R^{op} $ does;
@@ -902,16 +222,16 @@ However, the theorem is not necessarily true in a non-commutative ring. For exam
 	\item $ (R^{op})^{op}=R $;
 	\item If $ S $ is a ring, then $ R \cong S $ iff $ R^{op}\cong S^{op} $.
 	\end{enumerate}
-\end{Theorem}
+\end{theorem}
 
 
 
 
 
 \section{Ideals}
-\begin{Definition}
+\begin{definition}
 	Let $ R $ be a ring and $ S $ a nonempty subset of $ R $ that is closed under addition and multiplication in $ R $. If $ S $ is itself a ring under these operations then $ S $ is called a \textit{subring} of $ R $. A subring $ I $ of $ R $ is a \textit{left ideal}(resp. \textit{right ideal}) provided for $ r \in R $ and $ x \in I $ we have $ rx \in I $(resp. $ xr\in I $). $ I $ is an \textit{ideal} if it is both a left and right ideal.
-\end{Definition}
+\end{definition}
 It can be seen that ideal is the analogous definition of a normal subgroup of a group.
 \begin{Example}
 	The \textit{center} of a ring $ R $ is the set $ C = \{c \in R | cr=rc \text{ for all }r \in R\} $. $ C $ is a subring of $ R $ but it may not be an ideal.
@@ -919,24 +239,24 @@ It can be seen that ideal is the analogous definition of a normal subgroup of a 
 \begin{Example}
 	The cyclic group generated by any integer $ n $ is an ideal in $ \Zahlen $.
 \end{Example}
-\begin{Definition}
+\begin{definition}
 	The ideal of a ring that only contains $ 0 $ is called the \textit{trivial ideal}(denoted $ 0 $). An ideal $ I $ of $ R $ such that $ I $ is not trivial and $ I \neq R $ is called a \textit{proper ideal}.
-\end{Definition}
+\end{definition}
 If $ R $ has an identity $ 1_R $ and $ I $ is an ideal of $ R $, then $ I=R $ iff $ 1_R \in I $. Consequently a nonzero ideal $ I $ is proper iff $ I $ contains no units of $ R $. In particular, a division ring has no proper ideals.
-\begin{Theorem}
+\begin{theorem}
 	A nonempty subset $ I $ of $ R $ is a left (resp. right) ideal iff for all $ a,b \in I $ and $ r \in R $:
 	\begin{enumerate}
 		\item $ a,b \in I \Rightarrow a-b\in I $;
 		\item $ a \in I, r \in R \Rightarrow ra \in I $(resp. $ ar \in I $).
 	\end{enumerate}
-\end{Theorem}
+\end{theorem}
 \begin{Corollary}
 	Let $ \{A_i | i \in I \} $ be a family of [left] ideals in a ring $ R $. Then $ \bigcap_{i \in I}A_i $ is also a [left] ideal.
 \end{Corollary}
-\begin{Definition}
+\begin{definition}
 	Let $ X $ be a subset of a ring $ R $. Let $ \{A_i | i \in I \} $ be the family of all [left] ideals in $ R $ which contain $ X $. Then $ \bigcap_{i \in I} A_i $ is called the [left] \textit{ideal generated by $ X $}. This ideal is denoted $ (X) $. The elements of $ X $ are called \textit{generators} of $ (X) $. If $ X $ is finite, then $ (X) $ is said to be \textit{finitely generated}. An ideal $ (x) $ generated by a single element is called a \textit{principal ideal}. A \textit{principle ideal ring} is a ring in which every ideal is principal. A principal ideal ring which is an integral domain is called a \textit{principal ideal domain}.
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	Let $ R $ be a ring, $ a \in R $ and $ X \subset R $.
 	\begin{enumerate}
 	\item The principal ideal $ a $ consists of all elements of the form $ ra + as+ na + \sum_{i=1}^{m}r_i a s_i $($ r,s,r_i,s_i\in R $; $ m \in \Natural $; and $ n \in \Zahlen $).
@@ -946,11 +266,11 @@ If $ R $ has an identity $ 1_R $ and $ I $ is an ideal of $ R $, then $ I=R $ if
 	\item If $ R $ has an identity and $ a $ is in the center of $ R $, then $ Ra = (a)=aR $.
 	\item If $ R $ has an identity and $ X $ is in the center of $ R $, then the ideal $ (X) $ consists of all finite sums $ r_1 a_1 + \cdots + r_n a_n(n \in \Natural; r_i \in R; a_i \in X)$.
 	\end{enumerate}
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	Let $ A_1,A_2,\cdots,A_n $ be nonempty subsets of a ring $ R $. Denote by $ A_1 + A_2 + \cdots + A_n $ the set $ \{a_1+a_2+\cdots +a_n|a_i \in A_i\text{ for all } i \} $. If $ A $ and $ B $ are nonempty subsets of $ R $ let $ AB $ denote the set of all finite sums $ \{a_1 b_1 + \cdots +a_n b_n |n\in \Natural, a_i \in A, b_i \in B \} $. The definition of $ AB $ can be extended to an arbitrary number of factors. If all factors are the same set $ A $ it is denoted by $ A^n $.
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	Let $ A,A_1,A_2,\cdots, A_n $, $ B $ and $ C $ be [left] ideals in a ring $ R $.
 	\begin{enumerate}
 		\item $ A_1 + A_2 + \cdots + A_n $ and $ A_1  A_2  \cdots A_n  $ are [left] ideals;
@@ -958,74 +278,74 @@ If $ R $ has an identity $ 1_R $ and $ I $ is an ideal of $ R $, then $ I=R $ if
 		\item $ (AB)C = A(BC)=ABC $;
 		\item $ B(A_1+A_2+\cdots + A_n) =BA_1+BA_2+\cdots + BA_n $ and $ (A_1+A_2+\cdots + A_n)C = A_1 C+A_2 C+\cdots + A_n C $(distributivity).
 	\end{enumerate}
-\end{Theorem}
+\end{theorem}
 Since $ R $ is additively abelian, any ideal of it is also a normal subgroup. Thus the quotient $ R/I $ group can be defined in which addition is given by $ (a+I)+(b+I) =(a+b)+I$. Moreover, $ R/I $ can be made into a ring.
-\begin{Theorem}
+\begin{theorem}
 	Let $ R $ be a ring and $ I $ an ideal of $ R $. Then the additive quotient group $ R/I $ is a ring with multiplication given by
 	\begin{equation}
 		(a+I)(b+I)=(ab+I) \nonumber
 	\end{equation}
 	If $ R $ is commutative or has an identity, then the same is true of $ R/I $.
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 	If $ f:R \to S $ is a homomorphism of rings, then the kernel of $ f $ is an ideal in $ R $. Conversely if $ I $ is an ideal in $ R $, then the map $ \pi:R \to R/I $ given by $ r \mapsto r +I $ is an epimorphism of rings with kernel $ I $.
-\end{Theorem}
+\end{theorem}
 The map $ \pi $ is called the \textit{canonical epimorphism}(or \textit{projection}).
-\begin{Theorem}
+\begin{theorem}
 	If $ f:R \to S $ is a homomorphism of rings and $ I $ is an ideal of $ R $ which is contained in the kernel of $ f $, then there is a unique homomorphism of rings $ \bar{f}:R/I \to S $ such that $ \bar{f}(a+I)=f(a) $ for all $ a \in R $. $ \Im \bar{f}=\Im f $ and $ \Ker \bar{f}=(\Ker f)/I $. $ \bar{f} $ is an isomorphism iff $ f$ is an epimorphism and $ I = \Ker f $.
-\end{Theorem}
-\begin{Corollary}[First Isomorphism Theorem]
+\end{theorem}
+\begin{Corollary}[First Isomorphism theorem]
 	If $ f:R \to S $ is a homomorphism of rings, then $ f $ induces an isomorphism of rings $ R/\Ker f \cong \Im f $.
 \end{Corollary}
 \begin{Corollary}
 	If $ f:R \to S $ is a homomorphism of rings, $ I $ is an ideal in $ R $ and $ J $ is an ideal in $ S $ such that $ f(I)\subset J $, then $ f $ induces a homomorphism of rings $ \bar{f}:R/I \to S/J $, given by $ a+I \mapsto f(a)+J $. $ \bar{f} $ is an isomorphism iff $ \Im f +J = S $ and $ f^{-1}(J)\subset I $. In particular, if $ f $ is an epimorphism such that $ f(I)=J $ and $ \Ker f \subset I $, then $ \bar{f} $ is an isomorphism.
 \end{Corollary}
-\begin{Theorem}
+\begin{theorem}
 	Let $ I $ and $ J $ be ideals in a ring $ R $.
 	\begin{enumerate}
-		\item (Second Isomorphism Theorem) There is an isomorphisms of rings $ I/(I \cap J)\cong (I+J)/J $;
-		\item (Third Isomorphism Theorem) if $ I \subset J $, then $ J/I $ is an ideal in $ R/I $ and there is an isomorphism of rings $ (R/I)/(J/I)\cong R/J $.
+		\item (Second Isomorphism theorem) There is an isomorphisms of rings $ I/(I \cap J)\cong (I+J)/J $;
+		\item (Third Isomorphism theorem) if $ I \subset J $, then $ J/I $ is an ideal in $ R/I $ and there is an isomorphism of rings $ (R/I)/(J/I)\cong R/J $.
 	\end{enumerate}
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 	If $ I $ is an ideal in a ring $ R $, then there is a bijection between the set of all ideals of $ R $ which contain $ I $ and the set of all ideas of $ R/I $, given by $ J \mapsto J/I $. Hence every ideal in $ R/I $ is of the form $ J/I $, where $ J $ is an ideal of $ R $ which contains $ I $.
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	An ideal $ P $ in a ring $ R $ is said to be \textit{prime} if $ P \neq R $ and for any ideals $ A,B  $ in $ R $
 	\begin{equation}
 		AB \subset P \quad\Rightarrow\quad  A \subset P \quad \text{ or }\quad B \subset P \nonumber
 	\end{equation}
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	If $ P $ is an ideal in a ring $ R $ such that $ P \neq R $ and for all $ a,b \in R $
 	\begin{equation}
 		ab \in P \quad \Rightarrow \quad a \in P \quad \text{or} \quad b \in P \nonumber
 	\end{equation}
 	then $ P $ is prime. Conversely if $ P $ is prime and $ R $ is commutative, then $ P $ satisfies the condition above.
-\end{Theorem}
+\end{theorem}
 \begin{Example}
 	The zero ideal in any integral domain is prime. If $ p $ is a prime integer, then the principal ideal $ (p) $ in $ \Zahlen $ is prime.
 \end{Example}
-\begin{Theorem}
+\begin{theorem}
 	In a commutative ring $ R $ with identity $ 1_R \neq 0 $ and ideal $ P $ is prime iff the quotient ring $ R/P $ is an integral domain.
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	An ideal [resp. left ideal] $ M $ in a ring $ R $ is said to be \textit{maximal} if $ M \neq R $ and for every ideal [resp. left ideal] $ N $ such that $ M \subset  N \subset R$, either $ N = M $ or $ N = R $.
-\end{Definition}
-If $ R $ is a ring and $ \mathscr{S} $ is the set of all ideals $ I $ of $ R $ such that $ I \neq R $, then $ \mathscr{S} $ is partially ordered by set-theoretic inclusion. Consequently the following theorem can be proved using Zorn's Lemma.
-\begin{Theorem}
+\end{definition}
+If $ R $ is a ring and $ \mathscr{S} $ is the set of all ideals $ I $ of $ R $ such that $ I \neq R $, then $ \mathscr{S} $ is partially ordered by set-theoretic inclusion. Consequently the following theorem can be proved using Zorn's lemma.
+\begin{theorem}
 	In a nonzero ring $ R $ with identity maximal [left] ideals always exist. In fact every [left] ideal in $ R $ except $ R $ itself is contained in a maximal [left] ideal.
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 	If $ R $ is a commutative ring such that $ R^2 = R $(in particularly if $ R $ has an identity), then every maximal ideal $ M $ in $ R $ is prime.
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 	Let $ M $ be an ideal in a ring $ R $ with identity $ 1_R \neq 0 $.
 	\begin{enumerate}
 	\item If $ M $ is maximal and $ R $ is commutative, then the quotient ring $ R/M $ is a field.
 	\item If the quotient ring $ R/M $ is a division ring, then $ M $ is maximal.
 	\end{enumerate}
-\end{Theorem}
+\end{theorem}
 \begin{Corollary}
 	The following conditions on a commutative ring $ R $ with identity $ 1_R \neq 0 $ are equivalent.
 	\begin{enumerate}
@@ -1035,7 +355,7 @@ If $ R $ is a ring and $ \mathscr{S} $ is the set of all ideals $ I $ of $ R $ s
 		\item every nonzero homomorphism of rings $ R \to S $ is a monomorphism.
 	\end{enumerate}
 \end{Corollary}
-\begin{Theorem}
+\begin{theorem}
 	Let $ \{R_i | i\in I \} $ be a nonempty family of rings and $ \prod_{i \in I} R_i $ the direct product of the additive abelian group $ R_i $;
 	\begin{enumerate}
 		\item $ \prod_{i \in I}R_i $ is a ring with multiplication defined by $ \{a_i \}_{i \in I} \{a_i \}_{i \in I} = \{a_i b_i\}_{i \in I} $;
@@ -1043,29 +363,29 @@ If $ R $ is a ring and $ \mathscr{S} $ is the set of all ideals $ I $ of $ R $ s
 		\item for each $ k \in I $ the canonical projection $ \pi_k: \prod_{i \in I} R_i \to R_k $ given by $ \{a_i \}\mapsto a_k $ is an epimorphism of rings;
 		\item for each $ k \in I $ the canonical injection $ \iota_k: R_k \to \prod_{i \in I} R_i $ given by $ a_k \mapsto \{a_i \} $(where $ a_i = 0 $ for $ i \neq k $) is a monomorphism of rings.
 	\end{enumerate}
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	$ \prod_{i \in I} R_i $ is called the \textit{(external) direct product} of the family of rings. Its notation is analogous with it of the direct product of groups.
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	$ \prod_{i \in I} R_i$ is a product in the category of rings.
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 	Let $ A_1, A_2,\cdots,A_n $ be ideals in a ring $ R $ such that
 	\begin{enumerate}
 		\item $ A_1 + A_2 + \cdots + A_n = R $;
 		\item for each $ k(1 \leqslant k \leqslant n) $, $ A_k \cap (A_1 + \cdots + A_{k-1}+A_{k+1}+\cdots + A_n)=0 $.
 	\end{enumerate}
 Then there is a ring isomorphism $ R \cong A_1 \times A_2 \times \cdots \times A_n $.
-\end{Theorem}
+\end{theorem}
 If a ring and a family of its ideals satisfies the conditions in the theorem above, the ring is said to be the \textit{(internal) direct product} of this family of ideals. The notation of (internal) direct product for a ring is analogous to it of (internal) direct product for a group.
-\begin{Definition}
+\begin{definition}
 	Let $ A $ be an ideal in a ring $ R $ and $ a,b\in R $. The element $ a $ is said to be \textit{congruent to $ b $ modulo $ A $}(denoted $ a\equiv b \pmod{A} $) if $ a-b \in A $. Thus
 	\begin{equation}
 		a \equiv b \pmod{A} \Leftrightarrow a-b \in A \Leftrightarrow a+A = b+A \nonumber
 	\end{equation}
-\end{Definition}
-\begin{Theorem}[Chinese Remainder Theorem]
+\end{definition}
+\begin{theorem}[Chinese Remainder theorem]
 	Let $ A_1,\cdots, A_n $ be ideals in a ring $ R $ such that $ R^2 + A_i =R$ for all $ i $ and $ A_i + A_j = R $ for all $ i \neq j $. If $ b_1,\cdots,b_n \in R $, then there exists $ b\in R $ such that
 	\begin{equation}
 		b \equiv b_i \pmod{A_i}\qquad (i=1,2,\cdots,n) \nonumber
@@ -1074,7 +394,7 @@ If a ring and a family of its ideals satisfies the conditions in the theorem abo
 	\begin{equation}
 		A_1 \cap A_2 \cap \cdots \cap A_n \nonumber
 	\end{equation}
-\end{Theorem}
+\end{theorem}
 \begin{Corollary}
 	Let $ m_1,\cdots,m_n $ be positive integers such that $ (m_i,m_j)=1 $ for $ i \neq j $. If $ b_1, b_2,\cdots, b_n $ are any integers, then the system of congruences
 	\begin{equation}
@@ -1089,22 +409,22 @@ If a ring and a family of its ideals satisfies the conditions in the theorem abo
 	\end{equation}
 	If $ R^2 + A_i = R $ for all $ i $ and $ A_i + A_j = R $ for all $ i \neq j $, then $ \theta $ is an isomorphism of rings.
 \end{Corollary}
-\begin{Theorem}
+\begin{theorem}
 	The equation $ ax+ny=b $ has solutions for $ x,y \in \Zahlen $ iff $ GCD(a,n)|b $.
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 	The congruence $ ax \equiv b \mod n $ has a solution iff $ GCD(a,n)|b $. Moreover, if this congruence does have at least one solution, the number of noncongruent solutions modulo $ n $ is $ GCD(a,n) $; that is, if $ [a][x]=[b] $ has a solution in $ \Zahlen_n $, then it has $ GCD(a,n) $ different solutions in $ \Zahlen_n $.
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	Let $ m = m_1 m_2 \cdots m_r $, where the integers $ m_i $ are coprime in pairs. The \textit{residue representation} or \textit{modular representation} of any number $ x $ in $ \Zahlen_m $ is the $ r $-tuple $ (a_1,a_2,\cdots,a_r) $ where $ x\equiv a_i \mod m_i $.
-\end{Definition}
+\end{definition}
 
 
 \section{Factorization in Commutative Rings}
-\begin{Definition}
+\begin{definition}
 	A nonzero element $ a $ of a commutative ring $ R $ is said to \textit{divide} an element $ b $ in $ R $(written $ a|b $) if there exists $ x \in R $ such that $ ax=b $. Elements $ a,b $ of $ R $ are said to be \textit{associates} if $ a|b $ and $ b|a $.
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	Let $ a,b $ and $ u $ be elements of a commutative ring $ R $ with identity.
 	\begin{enumerate}
 		\item $ a|b $ iff $ (b)\subset (a) $.
@@ -1114,8 +434,8 @@ If a ring and a family of its ideals satisfies the conditions in the theorem abo
 		\item The relation ``$ a $ is an associate of $ b $'' is an equivalence relation on $ R $.
 		\item If $ a=br $ with $ r \in R $ a unit, then $ a $ and $ b $ are associates. If $ R $ is an integral domain, the converse is true.
 	\end{enumerate}
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	Let $ R $ be a commutative ring with identity. An element $ c $ of $ R $ is \textit{irreducible} provided that
 	\begin{enumerate}
 		\item $ c $ is a nonzero element;
@@ -1126,60 +446,60 @@ An element $ p $ of $ R $ is \textit{prime} provided that
 	\item $ p $ is a nonzero nonunit;
 	\item $ p|ab $ implies $ p|a $ or $ p|b $.
 \end{enumerate}
-\end{Definition}
+\end{definition}
 \textbf{[Incomplete]}
-\begin{Definition}
+\begin{definition}
 	An integral domain $ R $ is a \textit{unique factorization domain} provided that every nonzero nonunit element can be written as a unique finite product of irreducibles up to re arrangements and up to multiplication by units.
-\end{Definition}
-\begin{Definition}
+\end{definition}
+\begin{definition}
 	Let $ \Natural $ be the set of natural numbers and $ R $ a commutative ring. $ R $ is a \textit{Euclidean ring} if there is a function $ \varphi:R-{0}\to \Natural $ such that:
 	\begin{enumerate}
 		\item If $ a,b\in R $ and $ ab\neq 0 $, then $ \varphi(a)\leqslant \varphi(ab) $;
 		\item If $ a,b\in R $ and $ b \neq 0 $, then there exist $ q,r\in R $ such that $ a=qb+r $ with $ r=0 $ or $ r \neq 0 $ and $ \varphi(r)<\varphi(b) $.
 	\end{enumerate}
 A Euclidean ring which is an integral domain is called a \textit{Euclidean domain}.
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	Every Euclidean ring $ R $ is a principal ideal ring with identity. Consequently every Euclidean domain is a unique factorization domain.
-\end{Theorem}
+\end{theorem}
 \begin{Example}
 	Let $ \Zahlen[i] $ be $ \{a+bi|a,b \in \Zahlen \} $. $ \Zahlen[i] $ is an integral domain called the domain of Gaussian integers. Clearly $ \Zahlen[i] $ is an Euclidean domain provided $ \varphi(a+bi)=a^2+b^2 $.
 \end{Example}
-\begin{Definition}
+\begin{definition}
 	Let $ X $ be a nonempty subset of a commutative ring $ R $. An element $ d\in R $ is a \textit{greatest common divisor} of $ X $ provided:
 	\begin{enumerate}
 		\item $ d|a $ for all $ a \in X $;
 		\item $ c|a $ for all $ a \in X $ implies that $ c|d $.
 	\end{enumerate}
 If $ R $ has an identity and $ 1_R $ is the greatest common divisor of $ X $, then elements of $ X $ are said to be \textit{relatively prime}.
-\end{Definition}
-\begin{Definition}
+\end{definition}
+\begin{definition}
 		Let $ X $ be a nonempty subset of a commutative ring $ R $. An element $ l\in R $ is a \textit{least common multiple} of $ X $ provided:
 	\begin{enumerate}
 		\item $ a|l $ for all $ a \in X $;
 		\item $ a|f $ for all $ a \in X $ implies that $ l|f $.
 	\end{enumerate}
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	Let $ R $ be a Euclidean domain. Any two elements $ a $ and $ b $ in $ R $ have a greatest common divisor $ g $. Moreover, there exist $ s,t \in R $ such that
 	\begin{equation}
 		g=sa+tb \nonumber
 	\end{equation}
-\end{Theorem}
-\begin{Lemma}
+\end{theorem}
+\begin{lemma}
 	If $ r_{i-1}=r_i q_{i+1}+r_{i+1} $, then $ GCD(r_{i-1},r_i)=GCD(r_{i},r_{i+1}) $.
-\end{Lemma}
-\begin{Theorem}
+\end{lemma}
+\begin{theorem}
 	$ \Zahlen_n $ is a field iff $ n $ is prime.
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 	Let $ a $ be an element of the Euclidean ring $ R $. The quotient ring $ R/(a) $ is a field iff $ a $ is irreducible over $ R $.
-\end{Theorem}
+\end{theorem}
 \section{Rings of Quotients and Localization}
-\begin{Definition}
+\begin{definition}
 	A nonempty subset $ S $ of a ring $ R $ is \textit{multiplicative} if $ a,b\in S \Rightarrow ab\in S $.
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	Let $ S $ be a multiplicative subset of a commutative ring $ R $. The relation defined on the set $ R \times S $ by
 	\begin{equation}
 		(r,s)\sim (r^\prime ,s^\prime)\Leftrightarrow s_1 (rs^\prime-r^\prime s)=0\quad \text{for some}\quad s_1 \in S\nonumber
@@ -1188,34 +508,34 @@ If $ R $ has an identity and $ 1_R $ is the greatest common divisor of $ X $, th
 	\begin{equation}
 		(r,s)\sim (r^\prime ,s^\prime)\Leftrightarrow  rs^\prime-r^\prime s=0\nonumber
 	\end{equation}
-\end{Theorem}
+\end{theorem}
 $ (r,s) $ will be denoted as $ r/s $ from now on.
-\begin{Theorem}
+\begin{theorem}
 	Let $ S $ be a multiplicative subset of a commutative ring $ R $ and let $ S^{-1}R $ be the set of equivalence classes of $ R\times S $ under the equivalence relation defined previously.
 	\begin{enumerate}
 		\item $ S^{-1}R $ is a commutative ring with identity, where addition and multiplication are defined similarly to the addition and multiplication of rationals.
 		\item If $ R $ is a nonzero ring with no zero divisors and $ 0\notin S $, then $ S^{-1}R $ is an integral domain.
 		\item If $ R $ is a nonzero ring with no zero divisors and $ S $ is the set of all nonzero elements in $ R $, then $ S^{-1}R $ is a field.
 	\end{enumerate}
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	$ S^{-1}R $ is called the \textit{ring of quotients} or \textit{ring of fractions} or \textit{quotient ring} of $ R $ by $ S $. If $ S $ is the nonzero elements of $ R $, $ S^{-1}R $ is called the \textit{quotient field of the integral domain $ R $}(as in the third statement of the previous theorem). More generally if $ R $ is any non-zero commutative ring and $ S $ is the non-empty set of all nonzero elements of $ R $ that are not zero divisors, $ S^{-1}R $ is called the \textit{complete}(or \textit{full}) \textit{ring of quotients}(or \textit{fractions}) of the ring $ R $.
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	Let $ S $ be a multiplicative subset of a commutative ring $ R $.
 	\begin{enumerate}
 		\item The map $ \varphi_S:R \mapsto S^{-1}R $ given by $ r\mapsto rs/s $(for any $ s\in S $) is a well-defined homomorphism of rings such that $ \varphi_S(s) $ is a unit in $ S^{-1}R $ for every $ s\in S $.
 		\item If $ 0\notin S $ and $ S $ contains no zero divisors, then $ \varphi_S $ is a monomorphism. In particular, any integral domain may be embedded in its quotient field.
 		\item If $ R $ has an identity and $ S $ consists of units, then $ \varphi_S $ is an isomorphism. In particular, the complete ring of quotient, or the quotient field, of a field $ F $ is isomorphic to $ F $.
 	\end{enumerate}
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 	Let $ S $ be a multiplicative subset of a commutative ring $ R $ and let $ T $ be any commutative ring with identity. If $ f:R\to T $ is a homomorphism of rings such that $ f(s) $ is a unit in $ T $ for all $ s \in S $, then there exists a unique homomorphism of rings $ \bar{f}:S^{-1}R\to T $ such that $ \bar{f}\varphi_S=f $. The ring $ S^{-1}R $ is completely determined(up to isomorphism) by this property.
-\end{Theorem}
+\end{theorem}
 \begin{Corollary}
 	Let $ R $ be an integral domain considered as a subring of its quotient field $ F $. If $ E $ is a field and $ f:R\to E $ a monomorphism of rings, then there is a unique monomorphism of fields $ \bar{f}:F \to E $ such that $ \bar{f}|R=f $. In particular any field $ E_1 $ containing $ R $ contains an isomorphic copy $ F_1 $ of $ F $ with $ R \subset F_1 \subset E_1 $.
 \end{Corollary}
-\begin{Theorem}
+\begin{theorem}
 	Let $ S $ be a multiplicative subset of a commutative ring $ R $.
 	\begin{enumerate}
 		\item If $ I $ is an ideal in $ R $, then $ S^{-1}I=\{a/s|a\in I;s \in S \} $ is an ideal is $ S^{-1}R $.
@@ -1226,42 +546,42 @@ $ (r,s) $ will be denoted as $ r/s $ from now on.
 			S^{-1}(I\cap J)&=S^{-1}I \cap S^{-1}J\nonumber
 		\end{align}
 	\end{enumerate}
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	$ S^{-1}I $ is called the \textit{extension} of $ I $ in $ S^{-1}R $.
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	Let $ S $ be a multiplicative subset of a commutative ring $ R $ with identity and let $ I $ be an ideal of $ R $. Then $ S^{-1}I=S^{-1}R $ iff $ S \cap I \neq \varnothing $.
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	If $ J $ is an ideal in a ring of quotients $ S^{-1}R $, then $ \varphi_S^{-1}(J) $ is an ideal in $ R $ and is sometimes called the \textit{contraction} of $ J $ in $ R $.
-\end{Definition}
+\end{definition}
 \textbf{Incomplete}
 
 \section{Rings of Polynomials and Formal Power Series}
-\begin{Theorem}
+\begin{theorem}
 	Let $ R $ be a ring and let $ R[x] $ denote the set of all sequences of elements of $ R $ $ (a_0,a_1,\cdots) $ such that $ a_i=0 $ for all but a finite number of indices $ i $.
 	\begin{enumerate}
 		\item $ R[x] $ is a ring with addition and multiplication defined similarly to the addition and multiplication of polynomials in $ \Real $.
 		\item If $ R $ is commutative(resp. a ring with identity or a ring without zero divisors or an integral domain), then so is $ R[x] $.
 		\item The map $ R\to R[x] $ given by $ r \mapsto (r,0,0,\cdots) $ is a monomorphism of rings.
 	\end{enumerate}
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	The ring $ R[x] $ is called the \textit{ring of polynomials} over $ R $.
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	Let $ R $ be a ring with identity and denote by $ x $ the element $ (0,1_R,0,\cdots) $ of $ R[x] $.
 	\begin{enumerate}
 		\item $ x^n=(0,0,\cdots,0,1^R,0,\cdots) $, where $ 1_R $ is the $ (n+1) $st coordinate.
 		\item If $ r\in R $, then for each $ n \geqslant 0 $, $ rx^n=x^nr=(0,\cdots,0,r,0,\cdots) $, where $ r $ is the $ (n+1) $st coordinate.
 		\item For every nonzero polynomial $ f\in R[x] $ there exists an integer $ n $ and elements $ a_0,\cdots,a_n\in R $ such that $ f=a_0 x^0+a_1 x^1 + \cdots + a_n x^n $. The integer $ n $ and elements $ a_i $ are unique.
 	\end{enumerate}
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	If $ f=\sum_{i=0}^{n}a_i x^i \in R[x]$, then $ a_i $ are called the \textit{coefficients} of $ f $. $ a_0 $ is the constant term. Elements of $ R[x] $ whose only nonzero coordinates is the first one are called \textit{constant polynomials}. $ a_n $ is called the \textit{leading coefficient} of $ f $. If $ R $ has an identity and the leading coefficient of $ f $ is $ 1_R $ , $ f $ is said to be a \textit{monic polynomial}. The element $ x=(0,1_R,\cdots) $ is called an \textit{indeterminate}.
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	Let $ R $ be a ring and denote by $ R[x_1,x\cdots,x_n] $ the set of all functions $ f:\Natural^n \to R $ such that $ f(u)\neq 0 $ for at most a finite number of elements $ u $ of $ \Natural^n $.
 	\begin{enumerate}
 		\item $ R[x_1,\cdots,x_n] $ is a ring with addition and multiplication defined by
@@ -1272,10 +592,10 @@ $ (r,s) $ will be denoted as $ r/s $ from now on.
 		\item If $ R $ is commutative(resp. a ring with identity or a ring without zero divisors or an integral domain), then so is $ R[x_1,\cdots,x_n] $.
 		\item The map $ R\to R[x_1,\cdots,x_n] $ given by $ r \mapsto f_r $, where $ f_r(0,0,\cdots,0)=r $ and $ f(u)=0 $ for all other $ u \in \Natural^n $, is a monomorphism of rings.
 	\end{enumerate}
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	The ring $ R[x_1,\cdots,x_n] $ is called the \textit{ring of polynomials in $ n $ indeterminates over $ R $}.
-\end{Definition}
+\end{definition}
 \textbf{Incomplete}
 \begin{Proposition}
 	Let $ R $ be a ring and denote by $ R[[x]] $ the set of all sequences of elements of $ R $ $ (a_0,a_1,\cdots) $.
@@ -1289,15 +609,15 @@ $ (r,s) $ will be denoted as $ r/s $ from now on.
 		\item If $ R $ is commutative(resp. a ring with identity or a ring without zero divisors or an integral domain), then so is $ R[[x]] $.
 	\end{enumerate}
 \end{Proposition}
-\begin{Definition}
+\begin{definition}
 	$ R[[x]] $ is called the \textit{ring of formal power series} over the ring $ R $.
-\end{Definition}
+\end{definition}
 \textbf{Incomplete}
 \section{Factorization in Polynomial Rings}
-\begin{Definition}
+\begin{definition}
 	Let $ R $ be a ring. The \textit{degree of a nonzero monomial} $ a x_1^{k_1}x_2^{k_2}\cdots x_n^{k_n} in R[x_1,\cdots,x_n]$ is the nonnegative integer $ k_1 + k_2 + \cdots + k_n $. The \textit{(total) degree of the polynomial $ f $}, denoted $ \deg f $, is the maximum of the degrees of the monomials $ a_i x_1^{k_{i_1}}x_2^{k_{i_2}}\cdots x_n^{k_{i_n}} $ such that $ a_i \neq 0 $. A polynomial which is a sum of monomials, each of which has degree $ k $, is said to be \textit{homogeneous of degree $ k $}. The \textit{degree of $ f $ in $ x_k $} is the degree of $ f $ considered as a polynomial in one indeterminate $ x_k $ over the ring $ R[x_1,\cdots,x_{k-1},x_{k+1},\cdots,x_n] $.
-\end{Definition}
-\begin{Theorem}
+\end{definition}
+\begin{theorem}
 	Let $ R $ be a ring and $ f,g \in R[x_1,\cdots,x_n] $.
 	\begin{enumerate}
 		\item $ \deg(f+g) \leqslant \max (\deg f, \deg g)$.
@@ -1305,14 +625,14 @@ $ (r,s) $ will be denoted as $ r/s $ from now on.
 		\item If $ R $ has no zero divisors, $ \deg(fg)=\deg f+ \deg g $.
 		\item If $ n=1 $ and the leading coefficient of $ f $ or $ g $ is not a zero divisor in $ R $( in particular, if it is a unit), then $ \deg(fg)=\deg f+ \deg g  $.
 	\end{enumerate}
-\end{Theorem}
-\begin{Theorem}[The Division Algorithm]
+\end{theorem}
+\begin{theorem}[The Division Algorithm]
 	If $ R $ is a ring with identity and $ f,g\in R[x] $ are nonzero polynomials such that the leading coefficient of $ g $ is a unit in $ R $, there exist unique polynomials $ q,r\in R[x] $ such that
 	\begin{equation}
 		f=qg+r\qquad \text{and}\qquad \deg r < \deg g\nonumber
 	\end{equation}
-\end{Theorem}
-\begin{Corollary}[Remainder Theorem]
+\end{theorem}
+\begin{Corollary}[Remainder theorem]
 	Let $ R $ be a ring with identity and
 	\begin{equation}
 		f(x)=\sum_{i=0}^{n}a_i x^i \in R[x]\nonumber
@@ -1328,34 +648,34 @@ $ (r,s) $ will be denoted as $ r/s $ from now on.
 \begin{Corollary}
 	A polynomial of degree $ n $ in $ F[x] $ has at most $ n $ roots in $ F $.
 \end{Corollary}
-\begin{Theorem}[Fundamental Theorem of Algebra]
+\begin{theorem}[Fundamental theorem of Algebra]
 	If $ f(x) $ is a polynomial in $ \Complex[x] $ of positive degree, then $ f(x) $ has a root in $ \Complex $.
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 \begin{enumerate}
 	\item 	If $ z $ is a complex root of the real polynomial $ f(x)\in \Real[x] $, then its conjugate $ \overline{z} $ is also a root.
 	\item If $ a,b,c \in \Quoziente $ and $ a+b\sqrt{c} $ is an irrational root of the rational polynomial $ f(x)\in \Quoziente[x] $, then $ a-b \sqrt{c} $ is also a root.
 \end{enumerate}
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 	\begin{enumerate}
 		\item The irreducible polynomials in $ \Complex[x] $ are the polynomials of degree one.
 		\item The irreducible polynomials in $ \Real[x] $ are the polynomials of degree $ 1 $ together with the polynomials of degree $ 2 $ of the form $ ax^2 + bx + c $, where $ b^2 < 4ac $.
 	\end{enumerate}
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 	Let $ p(x)=a_0+ a_1 x + \cdots +a_n x^n \in \Zahlen[x]$. If $ r/s $ is a rational root of $ p(x) $ and $ GCD(r,s)=1 $, then $ r|a_0 $ and $ s|a_n $.
-\end{Theorem}
-\begin{Lemma}[Gauss's Lemma]
+\end{theorem}
+\begin{lemma}[Gauss's lemma]
 	Let $ P(x) =a_0 + a_1 x + \cdots +a_n x^n \in \Zahlen[x]$. If $ P(x) $ can be factored in $ \Quoziente[x] $ as $ P(x)=q(x)r(x) $, then $ P(x) $ can also be factored in $ \Zahlen[x] $.
-\end{Lemma}
-\begin{Theorem}[Eisenstein's Criterion]
+\end{lemma}
+\begin{theorem}[Eisenstein's Criterion]
 	Let $ D $ be a unique factorization domain with quotient field $ F $. If $ f=\sum_{i=0}^{n}a_i x^i \in D[x] $, $ \deg f \geqslant 1 $ and $ p $ is an irreducible element of $ D $ such that
 	\begin{equation}
 		p\nmid a_n;\quad p|a_i\quad \text{for}\quad i=0,1,\cdots,n-1;\quad p^2 \nmid a_0\nonumber
 	\end{equation}
 	then $ f $ is irreducible in $ F[x] $. If $ f $ is primitive, then $ f $ is irreducible in $ D[x] $.
-\end{Theorem}
+\end{theorem}
 \begin{Corollary}
 	Let $ f(x)= \sum_{i=0}^{n}a_i x^i \in \Zahlen[x] $. If, for some prime $ p $,
 	\begin{enumerate}
@@ -1368,13 +688,13 @@ then $ f(x) $ is irreducible over $ \Quoziente $.
 \begin{Example}
 	For any prime $ p $ the polynomial $ \varphi(x) =x^{p-1}+x^{p-1}+\cdots + x + 1$ is irreducible over $ \Quoziente $. This polynomial is called a \textit{cyclotomic polynomial} and can be written $ \varphi(x)=\frac{(x^p-1)}{x-1} $.
 \end{Example}
-\begin{Theorem}
+\begin{theorem}
 	Let $ P $ be the ideal $ (p(x)) $ in the polynomial ring of the field $ F[x] $, in which $ p(x) $ has a positive degree. The different elements of $ F[x]/(p(x)) $ are those of the form
 	\begin{equation}
 		P+a_0+a_1 x+\cdots + a_{n-1}x^{n-1}\nonumber
 	\end{equation}
 	where $ a_i \in F $.
-\end{Theorem}
+\end{theorem}
 \chapter{Modules}
 \section{Modules, Homomorphisms and Exact Sequences}
 \section{Free Modules and Vector Spaces}
@@ -1387,13 +707,13 @@ then $ f(x) $ is irreducible over $ \Quoziente $.
 
 \chapter{Fields and Galois Theory}
 \section{Field Extensions}
-\begin{Definition}
+\begin{definition}
 	A field $ F $ is said to be an \textit{extension field} of $ K $(or simply an \textit{extension} of $ k $) provided that $ K $ is a subfield of $ F $.
-\end{Definition}
+\end{definition}
 If $ F $ is an extension field of $ K $, $ F $ is a vector space over $ K $. The \textit{dimension} of the $ K $-vector space $ F $ will be denoted by $ [F:K] $. $ F $ is said to be a \textit{finite dimensional extension} or \textit{infinite dimensional extension} of $ K $ according as $ [F:K] $ is finite or infinite.
-\begin{Theorem}
+\begin{theorem}
 	Let $ F $ be an extension field of $ E $ and $ E $ an extension field of $ K $. Then $ [F:K]=[F:E][E:K] $. $ [F:K] $ is finite iff $ [F:E] $ and $ [E:K] $ are finite.
-\end{Theorem}
+\end{theorem}
 \begin{Example}
 	$ [\Complex:\Real]=2 $.
 \end{Example}
@@ -1401,13 +721,13 @@ If $ F $ is an extension field of $ K $, $ F $ is a vector space over $ K $. The
 	If $ p(x) $ is irreducible over the field $ F $, then $ K=F[x]/(p(x)) $ is an extension field of $ F $. Furthermore $ [K:F]=\deg p(x) $.
 \end{Example}
 \textbf{[Incomplete]}
-\begin{Definition}
+\begin{definition}
 	Let $ F $ be an extension of $ K $. An element $ u $ of $ F $ is said to be \textit{algebraic} over $ K $ if $ u $ is a root of some nonzero polynomial $ f\in K[x] $. Otherwise $ u $ is \textit{transcendental} over $ K $. $ F $ is called an \textit{algebraic extension} of $ K $ if every element of $ F $ is algebraic over $ K $. $ F $ is called a \textit{transcendental extension} if at least one element of $ F $ is transcendental over $ K $.
-\end{Definition}
+\end{definition}
 \begin{Example}
 	If $ K $ is a field, then $ K[x_1,\cdots,x_n] $ is an integral domain. The quotient field of $ K[x_1,\cdots,x_n] $ is denoted $ K(x_1,\cdots,x_n) $, which consists of all fractions of elements in $ K[x_1,\cdots,x_n] $. $ K(x_1,\cdots,x_n) $ is called the \textit{field of rational fractions} in $ x_1,\cdots,x_n $ over $ K $. Every element of $ K(x_1,\cdots,x_n) $ is transcendental over $ K $.
 \end{Example}
-\begin{Theorem}
+\begin{theorem}
 	If $ F $ is an extension field of $ K $ and $ u\in F $ is algebraic over $ K $, then
 	\begin{enumerate}
 		\item $ K(u)=K[u] $;
@@ -1415,13 +735,13 @@ If $ F $ is an extension field of $ K $, $ F $ is a vector space over $ K $. The
 		\item $ [K(u):K]=n $;
 		\item $ \{1_K,u,u^2,\cdots,u^{n-1} \} $ is a basis of the vector space $ K(u) $ over $ K $;
 	\end{enumerate}
-\end{Theorem}
-\begin{Lemma}
+\end{theorem}
+\begin{lemma}
 	Let $ p(x) $ be an irreducible polynomial over the field $ F $. Then $ F $ has a finite extension field $ K $ in which $ p(x) $ has a root.
-\end{Lemma}
-\begin{Theorem}
+\end{lemma}
+\begin{theorem}
 	If $ f(x) $ is any polynomial over the field $ F $, there is an extension field $ K $ of $ F $ over which $ f(x) $ splits into linear factors.
-\end{Theorem}
+\end{theorem}
 \begin{Proposition}
 	If $ [K:F] =2$ where $ F \subset \Quoziente $, then $ K=F(\sqrt{\gamma}) $ for some $ \gamma \in F $.
 \end{Proposition}
@@ -1431,7 +751,7 @@ If $ F $ is an extension field of $ K $, $ F $ is a vector space over $ K $. The
 \begin{Example}
 	$ [R:\Quoziente] $ is infinite.
 \end{Example}
-\section{The Fundamental Theorem}
+\section{The Fundamental theorem}
 \section{Splitting Fields, Algebraic Closure and Normality}
 \section{The Galois Group of a Polynomial}
 \section{Finite Fields}
@@ -1441,20 +761,20 @@ If $ F $ is an extension field of $ K $, $ F $ is a vector space over $ K $. The
 \begin{Corollary}
 	If $ F $ is a finite field, then $ \Char F=p\neq 0 $ for some prime $ p $ and $ |F|=p^n $ for some integer $  n\geqslant 1 $.
 \end{Corollary}
-\begin{Theorem}
+\begin{theorem}
 	If $ F $ is a field and $ G $ is a finite subgroup of the multiplicative group of nonzero elements of $ F $, then $ G $ is a cyclic group.
-\end{Theorem}
+\end{theorem}
 \begin{Proposition}
 	If the field $ F $ has prime characteristic $ p $, then $ F $ contains a subfield isomorphic to $ \Zahlen_p $. If the field $ F $ has zero characteristic, then $ F $ contains a subfield isomorphic to the rational numbers.
 \end{Proposition}
-\begin{Definition}
+\begin{definition}
 	A finite field with $ p^m $ elements is called a \textit{Galois field} of order $ p^m $ and is denoted by $ GF(p^m) $. It can be shown that for a given prime $ p $ and positive integer $ m $, a Galois field $ GF(p^m) $ exists and that all fields of order $ p^m $ are isomorphic. Moreover
 	\begin{equation}
 		GF(p^m)=\Zahlen_p[x]/(q(x))\nonumber
 	\end{equation}
 	where $ q(x) $ is a degree $ m $ polynomial irreducible in $ \Zahlen_p[x] $.
-\end{Definition}
-\begin{Definition}
+\end{definition}
+\begin{definition}
 	Elements of a Galois field $ GF(p^m) $ can be written as
 	\begin{equation}
 		\{a_0+a_i\alpha+\cdots+a_{m-1}\alpha^{m-1}|a_i\in\Zahlen_p \}\nonumber
@@ -1464,10 +784,10 @@ If $ F $ is an extension field of $ K $, $ F $ is a vector space over $ K $. The
 		\{0,1,\alpha,\alpha^2,\alpha^3,\cdots,\alpha^{p^m-2} \}\quad \text{where}\quad \alpha^{p^m-1}=1\nonumber
 	\end{equation}
 	The element $ \alpha $ is called a \textit{primitive element} of $ GF(p^m) $. Equivalently a generator of the cyclic group $ (GF(q)^\ast,\cdot) $ is called a \textit{primitive element of $ GF(q) $ }.
-\end{Definition}
-\begin{Definition}
+\end{definition}
+\begin{definition}
 	An irreducible polynomial $ g(x) $ of degree $ m $ over $ \Zahlen_p $ is called a \textit{primitive polynomial} if $ g(x)|x^k-1 $ for $ k=p^m-1 $ and for no smaller $ k $.
-\end{Definition}
+\end{definition}
 \begin{Proposition}
 	The irreducible polynomial $ g(x)\in \Zahlen_p[x] $ is primitive iff $ x $ is a primitive element in $ \Zahlen_p[x]/(g(x)) =GF(p^m)$.
 \end{Proposition}
@@ -1508,21 +828,21 @@ If $ F $ is an extension field of $ K $, $ F $ is a vector space over $ K $. The
 
 \chapter{Applications}	
 \section{Euclidean Motions}
-\begin{Definition}
+\begin{definition}
 	An \textit{isometry} of $ \Real^n $ is a transformation $ f:\Real^n \to \Real^n $ which is continuous and a symmetry(bijection). An isometry preserves the inner product(dot product on $ \Real^n $), thus preserves length and angle. Isometries are ``Rigid Motions'' os $ \Real^n $. The group of all isometries of $ \Real^n $ is called the \textit{Euclidean Group of $ \Real^n $} and is denoted $ E(n) $.
-\end{Definition}
-\begin{Definition}
+\end{definition}
+\begin{definition}
 	The \textit{orthogonal group}, denoted $ O(n) $, is a subgroup of $ E(n) $ consisting of all linear transformations that preserves inner products, which says that it is a group of matrices. The fact that these matrices preserve length implies that they have orthonormal columns: each column has unit length and two different columns have their dot product equal to zero.
-\end{Definition}
-\begin{Lemma}
+\end{definition}
+\begin{lemma}
 	If $ \matr{A}\in O(n) $, then $ \matr{A}\times \matr{A}^T=I $.
-\end{Lemma}
+\end{lemma}
 \begin{Proposition}
 	$ O(n)=\{\matr{A} \in E(n),\matr{A}(\vec{0})=(\vec{0}) \} $(If an isometry maps $ \vec{0} $ to $ \vec{0} $, then it is a linear transformation).
 \end{Proposition}
-\begin{Definition}
+\begin{definition}
 	Let $ T(n) $, the \textit{group of translations}, be the subgroup of $ E(n) $ such that if $ \alpha(\vec{v})=\vec{v}-\vec{v}_0 $ for some fixed $ \vec{v_0}\in \Real^n $.
-\end{Definition}
+\end{definition}
 \begin{Proposition}
 	There is a epimorphism from $ E(n) $ to $ O(n) $, defined by $ \varphi:E(n) \to O(n)$ and $ \varphi(\alpha)(\vec{v})=\alpha(\vec{v})-\alpha(\vec{0}) $, whose kernel is $ T(n) $.
 \end{Proposition}
@@ -1533,28 +853,28 @@ If $ F $ is an extension field of $ K $, $ F $ is a vector space over $ K $. The
 	Every finite subgroup $ G $ of $ E(n) $ fixes at least one point, i.e. there exists a vector $ \vec{v}\in\Real^n $ such that $ g(\vec{v})=\vec{v} $ for all $ g\in G $.
 \end{Proposition}
 \section{Matrix Groups}
-\begin{Definition}
+\begin{definition}
 	Let $ GL(n,\Real) $ denote the set of all nonsingular matrices with real entries and $ GL(n,\Complex) $ be the set of all nonsingular matrices with complex entries. These groups are called \textit{General Linear Groups}(and hence the derivation of the abbreviations).
-\end{Definition}
+\end{definition}
 \begin{Proposition}
 	Let $ G $ be a finite subgroup of $ GL(n,\Real) $(or $ GL(n,\Complex) $). Then $ \det (g) $ is a root of unity for any $ g\in G $.
 \end{Proposition}
 The function $\det: O(n) \to \{1,-1\}\cong \Zahlen_2 $, mapping a matrix to its determinant, is an epimorphism between groups.
-\begin{Definition}
+\begin{definition}
 	$ SO(n) $, or the \textit{Special Orthogonal Group}, is the subgroup of $ O(n) $ such that $ \det(a)=1 $ for $ a\in SO(n) $(an equivalent way is that $ SO(n) $ is the kernel of $ \det :O(n) \to \{1,-1\}\cong \Zahlen_2$ defined above). It is the group of proper rotations in $ \Real^n $.
-\end{Definition}
-\begin{Definition}
+\end{definition}
+\begin{definition}
 	Let $ U(n) $ be the subgroup of $ GL(n,\Complex) $ of complex unitary transformations
 	\begin{equation}
 		U(n)=\{\matr{A}\in GL(n,\Complex)|\angbracket{\matr{A}(\vec{u}),\matr{A}(\vec{v})}=\angbracket{\vec{u},\vec{v}} \}\nonumber
 	\end{equation}
 	where $ \angbracket{(x_1,\cdots,x_n),(y_1,\cdots,y_n)}=x_1 \bar{y_1}+\cdots+x_n \bar{y_n} $, $ \bar{y} $ denotes the complex conjugate of $ y$. $ \matr{A}\in U(n) $ iff $ \matr{A}\overline{\matr{A}^T}=\matr{I} $. The length of $ \det(\matr{A}) $ is an element of the circle group $ S^1\subset \Complex $. The function $ \det:U(n)\to S^1 $ is in fact an epimorphism. The kernel of this epimorphism is those matrices having determinant $ 1 $, which composed of the set of \textit{Special Unitary Matrices} $ SU(n) $, a subgroup of $ U(n) $.
-\end{Definition}
-\begin{Definition}
+\end{definition}
+\begin{definition}
 	The \textit{representation} of a group $ G $ is a homomorphism from $ G $ to $ GL(n,K) $, where $ K=\Real $ or $ \Complex $. Every $ g \in G $ is represented as a matrix acting on $ \Real^n $ or $ \Complex^n $. The homomorphism is called \textit{faithful} if it is injective.
-\end{Definition}
+\end{definition}
 \section{The $ 2 \times 2 $ Matrix Group}
-\begin{Theorem}
+\begin{theorem}
 	$ O(2) $ consists of matrices of the form
 	\begin{equation}
 		\begin{pmatrix}
@@ -1570,23 +890,23 @@ The function $\det: O(n) \to \{1,-1\}\cong \Zahlen_2 $, mapping a matrix to its 
 	\cos \theta &-\sin \theta \\
 	\sin \theta &\cos \theta
 	\end{pmatrix},0 \leqslant \theta \leqslant 2\pi $, and $ SO(2)\cong S^1 $.
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 	If $ G $ is a finite subgroup of $ SO(2) $, then $ G \cong \Zahlen_n $ for some $ n $.
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 	If $ G $ is a finite subgroup of $ O(2) $, then $ G \cong \Zahlen_n $ or $ G \cong D_n $ for some $ n $.
-\end{Theorem}
+\end{theorem}
 \section{Rotation of Regular Solids}
-\begin{Theorem}
+\begin{theorem}
 	If $ \matr{A}\in SO(3) $, then $ \matr{A} $ has a fixed axis(a line through the origin) and $ \matr{A} $ is just rotation about the axis.
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 	The group $ G $ of proper rotations of the tetrahedron is isomorphic to $ A_4 $.
-\end{Theorem}
-\begin{Theorem}
+\end{theorem}
+\begin{theorem}
 	The group of proper rotations of a cube is isomorphic to $ S_4 $.
-\end{Theorem}
+\end{theorem}
 \begin{Example}
 	The group of proper rotations of a regular dodecahedron and the group of proper rotations of a regular icosahedron are both isomorphic to $ A_5 $.
 \end{Example}
@@ -1594,26 +914,26 @@ The function $\det: O(n) \to \{1,-1\}\cong \Zahlen_2 $, mapping a matrix to its 
 	The group of proper rotations of a octahedron is isomorphic to $ S_4 $.
 \end{Example}
 \section{Finite Rotation Groups and Crystallographic Groups}
-\begin{Theorem}
+\begin{theorem}
 	Any finite subgroup of $ SO(3) $ is isomorphic to one of the following: $ \Zahlen_n $($ n\geqslant 1 $), $ D_n $($ n\geqslant 2 $), $ A_4 $, $ S_4 $, $ A_5 $.
-\end{Theorem}
-\begin{Definition}
+\end{theorem}
+\begin{definition}
 	An \textit{ideal crystallite lattice $ L $} is a subset of $ \Real^3 $ of the form
 	\begin{equation}
 		L=\{n_1 \vec{v}_1 +n_2 \vec{v}_2 + n_3 \vec{v}_3|n_i \in \Zahlen \}\nonumber
 	\end{equation}
 	where $ \vec{v}_i $ is a fixed basis of $ \Real^3 $.
-\end{Definition}
-\begin{Definition}
+\end{definition}
+\begin{definition}
 	A subgroup of $ SO(3) $ or $ O(3) $ that leaves a crystallite lattice invariant is called a \textit{crystallographic point group}.
-\end{Definition}
+\end{definition}
 \section{Polya-Burnside Method}
-\begin{Theorem}[Burnside]
+\begin{theorem}[Burnside]
 	Let $ G $ be a finite group acting on a finite set $ X $. For $ g\in G $ let $ \Fix g $ be the set $ \{x\in X| g(x)=x \} $. If $ N $ is the number of orbits of $ X $ under $ G $, then
 	\begin{equation}
 	N=	\frac{1}{|G|}\sum_{g\in G}|\Fix g|\nonumber
 	\end{equation}
-\end{Theorem}
+\end{theorem}
 	
 	
 	
