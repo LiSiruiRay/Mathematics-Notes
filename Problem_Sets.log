@@ -729,7 +729,7 @@ Package: euscript 2009/06/22 v3.00 Euler Script fonts
 LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
 (Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
 )
-\c@Theorem=\count151
+\c@theorem=\count151
 \c@Example=\count152
 
 
